@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14.3
+    volumes:
+      - ${PG_DATA_OVERRIDE-/tmp/idpartner/pg_data}:/var/lib/postgresql/data
+      - ./scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: welcome1
+
+  redis:
+    image: redis:6.2.6
+    restart: always
+    ports:
+      - "6379:6379"
