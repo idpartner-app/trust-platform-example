@@ -15,7 +15,7 @@ If for any reason you have Redis, Postgres and/or an OAuth2 service already runn
 Complete the sections below to get the environment up and running.
 
 # Docs
-1. [Registering the IDP](#TBD)
+1. [Registering the IDP](#registering-idps.md)
 1. [Common configuration](docs/common-configuration.md)
 1. [Configuring the oidc-provider-example-service](docs/configuring-oidc-provider-example-service.md)
 1. [Configuring the authorization-adapter-service](docs/configuring-authorization-adapter-service.md)

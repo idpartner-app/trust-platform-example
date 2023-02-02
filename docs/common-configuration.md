@@ -57,3 +57,6 @@ We suggest you to generate the JWKs using a script] we provide as part of this g
 For the sake of this example it's ok to put the same Base64 Encoded JWKs in all occurrences of `CHANGE_ME-RANDOM_SECRET`.
 
 For production usage, however, you must use a different JWKs for each service. Additionally, the JWKs include both public and secret keys. For that reason they should never be publically exposed. We strongly suggest to use a secrets manager to keep your JWKs.
+
+## Next steps
+You are done configuring the common variables and secrets! Go to [Configuring the oidc-provider-example-service](docs/configuring-oidc-provider-example-service.md).
