@@ -3,7 +3,7 @@
 
 > This service is not part of the IDPartner Trust Platform. This is just an example of an OIDC/OAuth2 service and we include it in this guideline only to illustrate how to integrate the Trust Platform with a preexisting service. The usage of this service in production is strongly discuraged.
 
-This guideline will help to configure the section [services.bank-oidc-provider-example-service](https://github.com/idpartner-app/trust-platform-example/blob/3f15783d65578800648788bc25448c0c2cb272ce/docker-compose.yml#L21) in the docker compose file.
+This guideline will help to configure the section [services.bank-oidc-provider-example-service](https://github.com/idpartner-app/trust-platform-example/blob/trustPlatformExample/docker-compose.yml#L21) in the docker compose file.
 
 For the sake of simplicity the oidc-provider-example-service has only one OAuth2 client registered. We will configure its Client ID and Client Secret below.
 
@@ -16,4 +16,4 @@ For the sake of simplicity the oidc-provider-example-service has only one OAuth2
 1. Grab the API Keys (project ID and the secret) from the Stytch [dashboard](https://stytch.com/dashboard/api-keys). Find the ocurrences of `CHANGE_ME-STYTCH_USERNAME` and `CHANGE_ME-STYTCH_PASSWORD` and replace them with the Project ID and Secret respectively.
 
 ## Next steps
-You are done configuring the oidc-provider-example! Go to [Configuring the authorization-adapter-service](docs/configuring-authorization-adapter-service.md).
+You are done configuring the oidc-provider-example-service! Go to [Configuring the authorization-adapter-service](docs/configuring-authorization-adapter-service.md).
