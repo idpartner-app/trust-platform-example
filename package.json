@@ -1,0 +1,12 @@
+{
+  "name": "trust-platform-example",
+  "version": "1.0.0",
+  "description": "Generate sample data to get the Trust Platform running in a few minutes",
+  "private": true,
+  "scripts": {
+    "generate-base64-encryption-and-signature-jwks": "node generators/generate-base64-encryption-and-signature-jwks.js"
+  },
+  "devDependencies": {
+    "node-jose": "^2.1.1"
+  }
+}
