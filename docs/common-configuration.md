@@ -3,13 +3,19 @@
 ## Prerequisites
 1. Ngrok. We use [ngrok](https://ngrok.com/) to integrate IDPartner APIs and the environment running locally. Install ngrok following instructions [here](https://ngrok.com/download).
 
-To verify ngrok is installed run `ngrok version`. It should return a version number and not an error.
-2. Nodejs. We use a few nodejs scripts to make setup easier. Install nodejs following instructions [here](https://nodejs.org/en/download/). Verify nodejs is installed by running `node -v`. We support versions `v16.16.0` and above.
-3. Yarn. We use yarn to install dependencies and run nodejs scripts. Install yarn following instructions [here](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable). Verify yarn is installed by running `yarn --version`. We support versions `1.18.0` and above.
+  To verify ngrok is installed run `ngrok version`. It should return a version number and not an error.
+2. Nodejs. We use a few nodejs scripts to make setup easier. Install nodejs following instructions [here](https://nodejs.org/en/download/).
+
+  Verify nodejs is installed by running `node -v`. We support versions `v16.16.0` and above.
+3. Yarn. We use yarn to install dependencies and run nodejs scripts. Install yarn following instructions [here](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).
+
+  Verify yarn is installed by running `yarn --version`. We support versions `1.18.0` and above.
 4. Install generators dependencies. Install the node packages that the generator scripts use. To do so run `yarn install` and make sure it completes without errors.
 
 ## Configuring localhost
-The configuration in the compose file assumes you are using [Docker for Mac](https://docs.docker.com/desktop/install/mac-install/). Because of that you will notice that some URLs in the configuration point to `docker.for.mac.localhost` instead of `localhost`. If you are not using Docker for Mac make sure you update the references to point to the localhost that resolves for your environment.
+The configuration in the compose file assumes you are using [Docker for Mac](https://docs.docker.com/desktop/install/mac-install/). Because of that you will notice that some URLs in the configuration point to `docker.for.mac.localhost` instead of `localhost`.
+
+If you are not using Docker for Mac make sure you update the references to point to the localhost that resolves for your environment.
 
 ## Configuring OIDC Provider URLs
 If you open the [compose file](docker-compose.yml) you will notice that multiple environment variables for different services have the value `CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK` and `CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK_WITHOUT_SCHEME`. That must be changed. Follow steps below to do it.
