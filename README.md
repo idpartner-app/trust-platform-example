@@ -15,6 +15,7 @@ If for any reason you have Redis, Postgres and/or an OAuth2 service already runn
 Complete the sections below to get the environment up and running.
 
 # Docs
+1. [Prerequisites](docs/prerequisites.md)
 1. [Registering the IDP](docs/registering-idps.md)
 1. [Common configuration](docs/common-configuration.md)
 1. [Configuring the bank-oauth2-example-service](docs/configuring-bank-oauth2-example-service.md)
