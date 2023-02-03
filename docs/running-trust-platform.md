@@ -9,13 +9,13 @@ This guideline covers how to setup and run the Trust Platform. This guideline as
 1. Run the trust platform. To do it simply run `docker-compose up`. Unless you have deleted/commented out any of the default services in the compose file you should see these services started and no errors in the output:
   - postgres
   - redis
-  - oidc-provider-example-service
+  - bank-oauth2-example-service
   - authorization-adapter-service
   - oidc-provider-service
 
 ## Next steps
 You are done configuring the Trust Platform. Go to the URL where your IDPartner Magic Button lives and give it a try!
 
-When promopted for authentication you should use the credentials you used when you created the Stytch user in [configuring-oidc-provider-example-service.md].
+When promopted for authentication you should use the credentials you used when you created the Stytch user in [configuring-bank-oauth2-example-service.md].
 
 Once you authenticate you should see the authoriation flow completed.

@@ -6,7 +6,7 @@ To setup the Trust Platform environment we use [docker compose](https://docs.doc
 The compose file is configured to start the following services:
 - Redis. Runs on port 6379.
 - Postgres. Runs on port 5432.
-- Oidc-provider-example-service. Runs on port 9101.
+- Bank-oauth2-example-service. Runs on port 9101.
 - Authorization-adapter-service. Runs on port 9102.
 - Oidc-provider-service. Runs on port 9001.
 
@@ -17,6 +17,6 @@ Complete the sections below to get the environment up and running.
 # Docs
 1. [Registering the IDP](docs/registering-idps.md)
 1. [Common configuration](docs/common-configuration.md)
-1. [Configuring the oidc-provider-example-service](docs/configuring-oidc-provider-example-service.md)
+1. [Configuring the bank-oauth2-example-service](docs/configuring-bank-oauth2-example-service.md)
 1. [Configuring the authorization-adapter-service](docs/configuring-authorization-adapter-service.md)
 1. [Configuring the oidc-provider-service](docs/configuring-oidc-provider-service.md)

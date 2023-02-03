@@ -31,7 +31,7 @@ Keep in mind that if for some reason you stop ngrok and start it again you will 
 ## Configuring Authorization Adapter URLs
 If you open the [compose file](docker-compose.yml) you will notice that multiple environment variables for different services have the value `CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK` and `CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK_WITHOUT_SCHEME`. That must be changed. Follow steps below to do it.
 
-1. Open a ssl tunnel to send traffic from the internet to the oidc-provider-service that will run locally on port 9102.
+1. Open a ssl tunnel to send traffic from the internet to the authorization-adapter-service that will run locally on port 9102.
   1. Run this in a tab of your terminal `ngrok http 9102`.
   1. Ngrok will start and will display something like this `Forwarding  https://bbbbbbbbbbbb.ngrok.io -> http://localhost:9102`. Notice that the subdomain `bbbbbbbbbbbb` is just an example and will be different every time you execute the ngrok http command.
 1. Copy the full host (`https://bbbbbbbbbbbb.ngrok.io` in this example) and replace with it the ocurrences of `CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK` in the [compose file](docker-compose.yml).
@@ -65,4 +65,4 @@ For the sake of this example it's ok to put the same Base64 Encoded JWKs in all 
 For production usage, however, you must use a different JWKs for each service. Additionally, the JWKs include both public and secret keys. For that reason they should never be publically exposed. We strongly suggest to use a secrets manager to keep your JWKs.
 
 ## Next steps
-You are done configuring the common variables and secrets! Go to [Configuring the oidc-provider-example-service](docs/configuring-oidc-provider-example-service.md).
+You are done configuring the common variables and secrets! Go to [Configuring the bank-oauth2-example-service](docs/configuring-bank-oauth2-example-service.md).

@@ -18,9 +18,9 @@ services:
     ports:
       - "6379:6379"
 
-  bank-oidc-provider-example:
-    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-mock-bank-oidc-example-service:development 
-    image: idpartner-mock-bank-oidc-example-service
+  bank-oauth2-example-service:
+    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-mock-bank-oauth2-example-service:development 
+    image: idpartner-mock-bank-oauth2-example-service
     restart: always
     # pull_policy: always
     ports:
