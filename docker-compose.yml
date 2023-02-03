@@ -119,11 +119,6 @@ services:
       ### Error Reporting Config
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
 
-      ### IDPartner Services Config
-      BROKER_SERVICE_URL: http://docker.for.mac.localhost:9002
-      EVENT_SERVICE_URL: http://docker.for.mac.localhost:9005
-      TRUST_MANAGEMENT_SERVICE_URL: http://docker.for.mac.localhost:9004
-
       ### IDP Services Config
       AUTH_SERVICE_URL: CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK
       # TRUSTED_PACKAGE_VERIFICATION_API_AUTH_TOKEN_TTL_IN_SECONDS: 60

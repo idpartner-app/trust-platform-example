@@ -16,6 +16,7 @@ This guideline will help to configure the section [services.authorization-adapte
   - If you are using the [oidc-provider-example-service][docs/configuring-oidc-provider-example-service.md] in this repo then grab the `CLIENT_ID` and `CLIENT_SECRET` configured in [this](docs/configuring-oidc-provider-example-service.md) section and set them to `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET` respectively.
   - If you are using your own OAuth service then create a client, grab its Client ID and Client Secret and set them to `OAUTH_CLIENT_ID` and `OAUTH_CLIENT_SECRET` respectively.
 1. Configure [PKCE](https://oauth.net/2/pkce/#:~:text=PKCE%20(RFC%207636)%20is%20an,is%20using%20a%20client%20secret.). By default PKCE is enabled in the authorization-adapter-service. If you would like to disable it set to `false` the variable `OAUTH_PKCE_ENABLED`. We suggest to keep it enabled to prevent CSRF and authorization code injection attacks.
+1. Configure Sentry. The default tool to do error tracking is Sentry. If you want to enable it follow their [setup guide](https://sentry.io/signup/). Create a Sentry DSN and set it to `SENTRY_DSN`. If you do not want to configure Sentry just leave the configuration as is.
 
 
 If you set `OAUTH_PROTOCOL` to be `oidc` instead of the default `oauth2` you can skip the steps below. The OIDC protocol allows clients to discover authorization, token and user info endpoints.
@@ -34,4 +35,4 @@ If you set `OAUTH_PROTOCOL` to be `oidc` instead of the default `oauth2` you can
   - The authorization-adapter-service will hit the endpoint conformed by the concatenated values of `OAUTH_URL` and `OAUTH_AUTHORIZATION_PATH` to start the authorization flow.
 
 ## Next steps
-You are done configuring the authorization-adapter-service! Go to [Configuring the oidc-provider--service](docs/configuring-oidc-provider-service.md).
+You are done configuring the authorization-adapter-service! Go to [Configuring the oidc-provider-service](docs/configuring-oidc-provider-service.md).
