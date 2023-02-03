@@ -2,7 +2,8 @@
 
 PG_DATA_OVERRIDE=/tmp/idpartner/pg_data
 ROOT_DIR=`dirname $(pwd)`
-MIGRATIONS_IMAGE=535716075523.dkr.ecr.us-west-2.amazonaws.com/mock-bank-migrations:development
+# MIGRATIONS_IMAGE=535716075523.dkr.ecr.us-west-2.amazonaws.com/mock-bank-migrations:development
+MIGRATIONS_IMAGE=idpartner-mock-bank-migrations
 
 usage () {
   echo ""
