@@ -20,3 +20,4 @@ Complete the sections below to get the environment up and running.
 1. [Configuring the bank-oauth2-example-service](docs/configuring-bank-oauth2-example-service.md)
 1. [Configuring the authorization-adapter-service](docs/configuring-authorization-adapter-service.md)
 1. [Configuring the oidc-provider-service](docs/configuring-oidc-provider-service.md)
+1. [Running the Trust Platform](docs/running-trust-platform.md)
