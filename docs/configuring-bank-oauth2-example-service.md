@@ -11,9 +11,5 @@ Follow steps below to configure the section [services.bank-oauth2-example-servic
 1. Create a Stytch account. Follow instructions [here](https://stytch.com/start-now).
 1. Find the ocurrences of `CHANGE_ME-STYTCH_USERNAME` and `CHANGE_ME-STYTCH_PASSWORD` and replace them with the Project ID and Secret respectively. Take them from the Stytch [dashboard](https://stytch.com/dashboard/api-keys).
 
-## Create Test User in Stytch
-1. Create a Stytch user with a password using their [API](https://stytch.com/docs/api/password-create) and get the `user_id` from the response.
-1. Update the Stytch user's first name and last name using their [API](https://stytch.com/docs/api/update-user).
-
 ## Next steps
 You are done configuring the bank-oauth2-example-service! Go to [Configuring the authorization-adapter-service](configuring-authorization-adapter-service.md).
