@@ -4,12 +4,12 @@ The configuration in the compose file assumes you are using [Docker for Mac](htt
 If you are not using Docker for Mac make sure you update the references to point to the localhost that resolves for your environment.
 
 ## Configuring OIDC Provider URLs
-1. Run this in your terminal `ngrok http 9001`. This will open an ssl tunnel to your local oidc-provider-service that will run on port 9001.
+1. Run this in your terminal `ngrok http 9501`. This will open an ssl tunnel to your local oidc-provider-service that will run on port 9501.
 1. From the output, copy the full ngrok host with format `https://aaaaaaaaaaaa.ngrok.io` and put it in the ocurrences of `CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK` in the [compose file](../docker-compose.yml).
 1. Copy the host without the http scheme (`aaaaaaaaaaaa.ngrok.io` in this example) and put it in the ocurrences of `CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
 
 ## Configuring Authorization Adapter URLs
-1. Run this in your terminal `ngrok http 9102`. This will open an ssl tunnel to your local authorization-adapter-service that will run on port 9102.
+1. Run this in your terminal `ngrok http 9502`. This will open an ssl tunnel to your local authorization-adapter-service that will run on port 9502.
 1. From the output, copy the full ngrok host with format `https://bbbbbbbbbbbb.ngrok.io` and put it in the ocurrences of `CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK` in the [compose file](../docker-compose.yml).
 1. Copy the host without the http scheme (`bbbbbbbbbbbb.ngrok.io` in this example) and put it in the ocurrences of `CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
 

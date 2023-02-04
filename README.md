@@ -5,9 +5,9 @@ This example uses docker-compose to configure and setup the environment.  The co
 
 - **Redis**. Runs on port 6379.
 - **Postgres**. Runs on port 5432.
-- **Oidc-provider-service**. Runs on port 9001.
-- **Authorization-adapter-service**. Runs on port 9102.
-- **Bank-oauth2-example-service**. Runs on port 9101.
+- **Oidc-provider-service**. Runs on port 9501.
+- **Authorization-adapter-service**. Runs on port 9502.
+- **Bank-oauth2-example-service**. Runs on port 9701.
 
 Note: If you have Redis, Postgres and/or an OAuth2 service already running and you would like to connect to those instead of connecting to the ones included in the compose file feel free to update it as needed.
 
