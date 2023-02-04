@@ -22,3 +22,6 @@ cd scripts
 ```
 
 It should finish without errors.
+
+## Next steps
+You are done with this section. Go to [Common Configuration](common-configuration.md).

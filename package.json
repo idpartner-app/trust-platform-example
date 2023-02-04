@@ -4,6 +4,8 @@
   "description": "Generate sample data to get the Trust Platform running in a few minutes",
   "private": true,
   "scripts": {
+    "generate-random-secrets": "node generators/generate-random-secret.js",
+    "generate-base64-signature-jwks": "node generators/generate-base64-signature-jwks.js",
     "generate-base64-encryption-and-signature-jwks": "node generators/generate-base64-encryption-and-signature-jwks.js"
   },
   "devDependencies": {
