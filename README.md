@@ -1,20 +1,17 @@
 # Trust Platform Example
-This project contains the intructions to get an example of the IDPartner Trust Platform environment up and running in a few minutes.
+This project contains the instructions on how you can configure the IDPartner Trust Platform and integrate with an OAuth Identity Provider. We provide an example oauth service which uses Stytch to manage the login credentials.
 
-To setup the Trust Platform environment we use [docker compose](https://docs.docker.com/compose/). The compose file with the configuration to start the environment can be found [here](docker-compose.yml).
+This example uses docker-compose to configure and setup the environment.  The compose file is configured to start the following services:
 
-The compose file is configured to start the following services:
 - **Redis**. Runs on port 6379.
 - **Postgres**. Runs on port 5432.
-- **Bank-oauth2-example-service**. Runs on port 9101.
-- **Authorization-adapter-service**. Runs on port 9102.
 - **Oidc-provider-service**. Runs on port 9001.
+- **Authorization-adapter-service**. Runs on port 9102.
+- **Bank-oauth2-example-service**. Runs on port 9101.
 
-If for any reason you have Redis, Postgres and/or an OAuth2 service already running and you would like to connect to those instead of connecting to the ones included in the compose file feel free to update it as needed.
+Note: If you have Redis, Postgres and/or an OAuth2 service already running and you would like to connect to those instead of connecting to the ones included in the compose file feel free to update it as needed.
 
-Complete the sections below to get the environment up and running.
-
-# Docs
+# Getting Started
 1. [Prerequisites](docs/prerequisites.md)
 1. [Common configuration](docs/common-configuration.md)
 1. [Configuring the bank-oauth2-example-service](docs/configuring-bank-oauth2-example-service.md)
