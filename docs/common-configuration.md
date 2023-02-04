@@ -1,4 +1,4 @@
-## Configuring localhost
+# Configuring localhost
 The configuration in the compose file assumes you are using [Docker for Mac](https://docs.docker.com/desktop/install/mac-install/). Because of that you will notice that some URLs in the configuration point to `docker.for.mac.localhost` instead of `localhost`.
 
 If you are not using Docker for Mac make sure you update the references to point to the localhost that resolves for your environment.
