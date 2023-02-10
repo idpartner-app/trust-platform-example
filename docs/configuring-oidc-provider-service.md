@@ -8,4 +8,4 @@ Follow steps below to configure the section [services.oidc-provider-service](htt
 1. [Optional] Configure the Trust Package API. _If you want to validate the content of the IDPartner Trust Package and make decisions based on its content please contact us._
 
 ## Next steps
-You are done configuring the oidc-provider-service! Go to [Running the Trust Platform](running-trust-platform.md).
+Go to [Running the Trust Platform](running-trust-platform.md).

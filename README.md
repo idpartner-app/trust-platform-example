@@ -13,7 +13,7 @@ Note: If you have Redis, Postgres and/or an OAuth2 service already running and y
 
 # Getting Started
 1. [Prerequisites](docs/prerequisites.md)
-1. [Common configuration](docs/common-configuration.md)
+1. [Common configuration](docs/initial-setup.md)
 1. [Configuring the bank-oauth2-example-service](docs/configuring-bank-oauth2-example-service.md)
 1. [Configuring the authorization-adapter-service](docs/configuring-authorization-adapter-service.md)
 1. [Configuring the oidc-provider-service](docs/configuring-oidc-provider-service.md)

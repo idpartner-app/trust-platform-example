@@ -20,4 +20,4 @@ If you are not using Docker for Mac make sure you update the references to point
 Random secrets are mostly used to sign session cookies. For production you must use a different random string for each occurrence of `CHANGE_ME-RANDOM_SECRET`.
 
 ## Next steps
-You are done configuring the common variables and secrets! Go to [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
+Go to [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).

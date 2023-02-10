@@ -26,4 +26,4 @@ Depending on your integration follow instructions below to configure either OAut
 The endpoints for `OAUTH_USERINFO_PATH`, `OAUTH_TOKEN_PATH` and `OAUTH_AUTHORIZATION_PATH` can be inferred using the OIDC well known endpoint. 
 
 ## Next steps
-You are done configuring the authorization-adapter-service! Go to [Configuring the oidc-provider-service](configuring-oidc-provider-service.md).
+Go to [Configuring the oidc-provider-service](configuring-oidc-provider-service.md).

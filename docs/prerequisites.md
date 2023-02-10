@@ -7,4 +7,4 @@ The tools below are required to finish the guideline. Make sure they are install
 1. Install dependencies. Run `yarn install` and make sure it completes without errors
 
 ## Next steps
-You are done with this section. Go to [Initial Setup](initial-setup.md).
+Go to [Initial Setup](initial-setup.md).
