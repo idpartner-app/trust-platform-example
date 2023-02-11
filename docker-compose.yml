@@ -19,10 +19,8 @@ services:
       - "6379:6379"
 
   bank-oauth2-example-service:
-    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-mock-bank-oauth2-example-service:development 
     image: idpartner-mock-bank-oauth2-example-service
     restart: always
-    # pull_policy: always
     ports:
       - "9701:9701"
     environment:
@@ -49,10 +47,8 @@ services:
       - redis
 
   authorization-adapter-service:
-    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-authorization-adapter-service:development 
     image: idpartner-authorization-adapter-service
     restart: always
-    # pull_policy: always
     ports:
       - "9502:9502"
     environment:
@@ -86,11 +82,39 @@ services:
     depends_on:
       - redis
 
+  backchannel-authentication-service:
+    image: idpartner-backchannel-authentication-service
+    restart: always
+    ports:
+      - "9503:9503"
+    environment:
+      ### Common Config
+      PORT: 9503
+
+      ### Redis Config
+      REDIS_HOST: docker.for.mac.localhost
+      # REDIS_PORT: 6379
+
+      ### Session Config
+      COOKIE_DOMAIN: CHANGE_ME-BACKCHANNEL_AUTHENTICATION_SERVICE_NGROK_WITHOUT_SCHEME
+      COOKIE_SECRET: CHANGE_ME-RANDOM_SECRET
+
+      ### Error Reporting Config
+      SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
+
+      ### IDP Services Config
+      OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
+      BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTHENTICATION_SERVICE_NGROK
+      BANK_USERS_SERVICE_API: CHANGE_ME:BANK_USERS_SERVICE_NGROK
+      BANK_DEVICES_SERVICE_API: CHANGE_ME:BANK_DEVICES_SERVICE_NGROK
+      BANK_PUSH_AUTHENTICATIONS_SERVICE_API: CHANGE_ME:BANK_PUSH_AUTHENTICATIONS_SERVICE_NGROK
+      MOBILE_APP_URL: idpartner://idpartner-future-bank
+    depends_on:
+      - redis
+
   oidc-provider-service:
-    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-oidc-provider-service:development 
     image: idpartner-oidc-provider-service
     restart: always
-    # pull_policy: always
     ports:
       - "9501:9501"
     environment:
