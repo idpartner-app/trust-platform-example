@@ -46,6 +46,23 @@ services:
     depends_on:
       - redis
 
+  bank-identity-service:
+    image: idpartner-mock-bank-identity-service
+    restart: always
+    ports:
+      - "9702:9702"
+    environment:
+      ### Common Config
+      BASE64_JWKS: CHANGE_ME-BASE64_JWKS
+      APN_BUNDLE_ID: CHANGE_ME-APN_BUNDLE_ID
+      APN_KEY_BASE64: CHANGE_ME-APN_KEY_BASE64
+      APN_KEY_ID: CHANGE_ME-APN_KEY_ID
+      APN_TEAM_ID: CHANGE_ME-APN_TEAM_ID
+      PORT: 9702
+
+      ### Error Reporting Config
+      SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
+
   authorization-adapter-service:
     image: idpartner-authorization-adapter-service
     restart: always
@@ -89,6 +106,7 @@ services:
       - "9503:9503"
     environment:
       ### Common Config
+      BASE64_JWKS: CHANGE_ME-BASE64_JWKS
       PORT: 9503
 
       ### Redis Config
