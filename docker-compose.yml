@@ -46,7 +46,7 @@ services:
     depends_on:
       - redis
 
-  bank-identity-service:
+  bank-identity-example-service:
     image: idpartner-mock-bank-identity-service
     restart: always
     ports:
@@ -123,9 +123,9 @@ services:
       ### IDP Services Config
       OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
       BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTHENTICATION_SERVICE_NGROK
-      BANK_USERS_SERVICE_API: CHANGE_ME:BANK_USERS_SERVICE_NGROK
-      BANK_DEVICES_SERVICE_API: CHANGE_ME:BANK_DEVICES_SERVICE_NGROK
-      BANK_PUSH_AUTHENTICATIONS_SERVICE_API: CHANGE_ME:BANK_PUSH_AUTHENTICATIONS_SERVICE_NGROK
+      BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
+      BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
+      BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
       MOBILE_APP_URL: idpartner://idpartner-future-bank
     depends_on:
       - redis
@@ -162,9 +162,8 @@ services:
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
 
       ### IDP Services Config
-      # TRUSTED_PACKAGE_VERIFICATION_API_AUTH_TOKEN_TTL_IN_SECONDS: 60
-      # TRUSTED_PACKAGE_VERIFICATION_API: http://docker.for.mac.localhost:9100/v1/trusted-packages/verify
-      # TRUSTED_PACKAGE_VERIFICATION_ENABLED: true
+      TRUSTED_PACKAGE_VERIFICATION_API: http://docker.for.mac.localhost:9702/v1/trusted-packages/verify
+      TRUSTED_PACKAGE_VERIFICATION_ENABLED: true
     depends_on:
       - db
       - redis
