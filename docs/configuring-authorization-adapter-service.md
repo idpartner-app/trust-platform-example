@@ -4,12 +4,10 @@
 Follow steps below to configure the section [services.authorization-adapter-service](https://github.com/idpartner-app/trust-platform-example/blob/trustPlatformExample/docker-compose.yml#L51) in the docker compose file.
 
 ## Initial Setup
-The OAuth Client ID and Secret required for this service must match the values set in [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
-
-1. Set the OAuth Client ID. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with `foo`.
-1. Set the OAuth Client Secret. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with `bar`.
-1. [PKCE](https://oauth.net/2/pkce/#:~:text=PKCE%20(RFC%207636)%20is%20an,is%20using%20a%20client%20secret.) is enabled by default. If you need to disable it set `OAUTH_PKCE_ENABLED` to `false`.
-1. [Optional] Configure Error Reporting. [Sign up to Sentry](https://sentry.io/signup/), create a DSN and set it to `SENTRY_DSN`.
+1. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with the Client ID configured in [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
+2. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with the Client Secret configured in [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
+3. [PKCE](https://oauth.net/2/pkce/#:~:text=PKCE%20(RFC%207636)%20is%20an,is%20using%20a%20client%20secret.) is enabled by default. If you need to disable it set `OAUTH_PKCE_ENABLED` to `false`.
+4. [Optional] Configure Error Reporting. [Sign up to Sentry](https://sentry.io/signup/), create a DSN and set it to `SENTRY_DSN`.
 
 Depending on your integration follow instructions below to configure either OAuth2 or OIDC.
 

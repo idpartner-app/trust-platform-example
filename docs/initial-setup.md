@@ -24,5 +24,9 @@ If you are not using Docker for Mac make sure you update the references to point
 
 Random secrets are mostly used to sign session cookies. For production you must use a different random string for each occurrence of `CHANGE_ME-RANDOM_SECRET`.
 
+## Configuring Signature and Encryption JWKs
+1. Generate a base64 encoded JWKs running `yarn generate-base64-encryption-and-signature-jwks`.
+1. Copy the base64 encoded JWKs and put it in the occurrences of `CHANGE_ME-BASE64_JWKS`.
+
 ## Next steps
 Go to [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
