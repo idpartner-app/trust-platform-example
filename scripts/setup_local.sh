@@ -45,6 +45,9 @@ sleep 30
 # Run migrations
 docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
 
+# Stop services
+docker compose down
+
 echo "Setup FINISHED."
 echo ""
 echo "From this point onward you should run 'docker compose up' to start the Trust Platform"
