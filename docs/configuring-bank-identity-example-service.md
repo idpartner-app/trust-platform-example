@@ -4,7 +4,7 @@
 
 Follow steps below to configure the section [services.bank-identity-example-service](https://github.com/idpartner-app/trust-platform-example/blob/BackchannelAuthExample/docker-compose.yml#L49) in the docker compose file.
  
-1. Create an [Apple developmet account](https://developer.apple.com/).
+1. Create an [Apple developer account](https://developer.apple.com/).
 1. Create an iOS mobile app using our ios-example-app.
 1. Replace the occurrences of `CHANGE_ME-APN_BUNDLE_ID` with the bundle ID from the mobile app
 1. Replace the occurrences of `CHANGE_ME-APN_KEY_BASE64` with the base64 encoded key from the mobile app
