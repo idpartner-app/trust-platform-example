@@ -13,10 +13,10 @@ If you are not using Docker for Mac make sure you update the references to point
 1. Copy the full ngrok host `https://bbbbbbbbbbbb.ngrok.io` and put it in the occurrences of `CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK` in the [compose file](../docker-compose.yml).
 1. Copy the host without the http scheme (`bbbbbbbbbbbb.ngrok.io` in this example) and put it in the occurrences of `CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
 
-## Configuring Backchannel Authentication URLs
-1. Run ngrok in your terminal `ngrok http 9503` to open an ssl tunnel to the `backchannel-authentication-service`.
-1. Copy the full ngrok host `https://cccccccccccc.ngrok.io` and put it in the occurrences of `CHANGE_ME-BACKCHANNEL_AUTHENTICATION_SERVICE_NGROK` in the [compose file](../docker-compose.yml).
-1. Copy the host without the http scheme (`cccccccccccc.ngrok.io` in this example) and put it in the occurrences of `CHANGE_ME-BACKCHANNEL_AUTHENTICATION_SERVICE_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
+## Configuring Backchannel Auth URLs
+1. Run ngrok in your terminal `ngrok http 9503` to open an ssl tunnel to the `backchannel-auth-service`.
+1. Copy the full ngrok host `https://cccccccccccc.ngrok.io` and put it in the occurrences of `CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK` in the [compose file](../docker-compose.yml).
+1. Copy the host without the http scheme (`cccccccccccc.ngrok.io` in this example) and put it in the occurrences of `CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
 
 ## Configuring Random Secrets
 1. Generate a high entrophy random string running `yarn generate-random-secret`.

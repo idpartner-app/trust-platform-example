@@ -36,7 +36,7 @@ echo "PG_DATA_OVERRIDE set to: ${PG_DATA_OVERRIDE}"
 export PG_DATA_OVERRIDE
 
 # Start services
-docker compose up --detach --remove-orphans
+docker compose up --remove-orphans
 
 # Give the services 20s to come up
 echo "Preparing to run migrations please wait..."

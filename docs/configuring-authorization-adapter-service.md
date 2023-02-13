@@ -6,8 +6,8 @@ Follow steps below to configure the section [services.authorization-adapter-serv
 ## Initial Setup
 The OAuth Client ID and Secret required for this service must match the values set in [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
 
-1. Set the OAuth Client ID. Replace the ocurrences of `CHANGE_ME-CLIENT_ID` with `foo`. 
-1. Set the OAuth Client Secret. Replace the ocurrences of `CHANGE_ME-CLIENT_SECRET` with `bar`.
+1. Set the OAuth Client ID. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with `foo`.
+1. Set the OAuth Client Secret. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with `bar`.
 1. [PKCE](https://oauth.net/2/pkce/#:~:text=PKCE%20(RFC%207636)%20is%20an,is%20using%20a%20client%20secret.) is enabled by default. If you need to disable it set `OAUTH_PKCE_ENABLED` to `false`.
 1. [Optional] Configure Error Reporting. [Sign up to Sentry](https://sentry.io/signup/), create a DSN and set it to `SENTRY_DSN`.
 
@@ -26,4 +26,4 @@ Depending on your integration follow instructions below to configure either OAut
 The endpoints for `OAUTH_USERINFO_PATH`, `OAUTH_TOKEN_PATH` and `OAUTH_AUTHORIZATION_PATH` can be inferred using the OIDC well known endpoint. 
 
 ## Next steps
-Go to [Configuring the oidc-provider-service](configuring-oidc-provider-service.md).
+Go to [Configuring the bank-identity-example-service](configuring-bank-identity-example-service.md).

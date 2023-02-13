@@ -99,7 +99,7 @@ services:
     depends_on:
       - redis
 
-  backchannel-authentication-service:
+  backchannel-auth-service:
     image: idpartner-backchannel-authentication-service
     restart: always
     ports:
@@ -114,19 +114,19 @@ services:
       # REDIS_PORT: 6379
 
       ### Session Config
-      COOKIE_DOMAIN: CHANGE_ME-BACKCHANNEL_AUTHENTICATION_SERVICE_NGROK_WITHOUT_SCHEME
+      COOKIE_DOMAIN: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK_WITHOUT_SCHEME
       COOKIE_SECRET: CHANGE_ME-RANDOM_SECRET
 
       ### Error Reporting Config
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
 
       ### IDP Services Config
+      MOBILE_APP_URL: CHANGE_ME-MOBILE_APP_URL
       OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
-      BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTHENTICATION_SERVICE_NGROK
+      BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK
       BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
       BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
       BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
-      MOBILE_APP_URL: idpartner://idpartner-future-bank
     depends_on:
       - redis
 
@@ -138,7 +138,7 @@ services:
     environment:
       ### Common Config
       BASE64_JWKS: CHANGE_ME-BASE64_JWKS
-      IDENTITY_PROVIDER_UUID: IDPARTNER_IDP_UUID:CHANGE_ME
+      IDENTITY_PROVIDER_UUID: CHANGE_ME-IDENTITY_PROVIDER_UUID
       OIDC_COOKIES_KEYS: CHANGE_ME-RANDOM_SECRET
       OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
       PORT: 9501
