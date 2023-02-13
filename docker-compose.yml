@@ -41,8 +41,8 @@ services:
 
       ### Stytch Config
       STYTCH_API_URL: https://test.stytch.com/v1
-      STYTCH_API_USERNAME: CHANGE_ME-STYTCH_USERNAME
-      STYTCH_API_PASSWORD: CHANGE_ME-STYTCH_PASSWORD
+      STYTCH_API_PROJECT_ID: CHANGE_ME-STYTCH_API_PROJECT_ID
+      STYTCH_API_SECRET: CHANGE_ME-STYTCH_API_SECRET
     depends_on:
       - redis
 

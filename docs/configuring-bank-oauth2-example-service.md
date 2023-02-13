@@ -10,7 +10,7 @@ Follow steps below to configure the section [services.bank-oauth2-example-servic
 1. Generate a base64 encoded JWKs running `yarn generate-base64-signature-jwks`.
 1. Copy the base64 encoded JWKs and put it in the occurrences of `CHANGE_ME-BASE64_SIGNATURE_JWKS`.
 1. Create a Stytch account. Follow instructions [here](https://stytch.com/start-now).
-1. Find the occurrences of `CHANGE_ME-STYTCH_USERNAME` and `CHANGE_ME-STYTCH_PASSWORD` and replace them with the Project ID and Secret respectively. Take them from the Stytch [dashboard](https://stytch.com/dashboard/api-keys).
+1. Find the occurrences of `CHANGE_ME-STYTCH_API_PROJECT_ID` and `CHANGE_ME-STYTCH_API_SECRET` and replace them with the Project ID and Secret from the Stytch [dashboard](https://stytch.com/dashboard/api-keys).
 
 ## Next steps
 Go to [Configuring the authorization-adapter-service](configuring-authorization-adapter-service.md).
