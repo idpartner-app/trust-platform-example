@@ -1,5 +1,5 @@
 # Configuring the backchannel-auth-service
-Follow steps below to configure the section [services.backchannel-auth-service](https://github.com/idpartner-app/trust-platform-example/blob/BackchannelAuthExample/docker-compose.yml#L102) in the docker compose file.
+Follow steps below to configure the section [services.backchannel-auth-service](../docker-compose.yml) in the docker compose file.
 
 1. Replace the occurrences of `CHANGE_ME-MOBILE_APP_URL` with the iOS mobile app URL. For example `idpartner://idpartner-future-bank`.
 1. [Optional] Update the value of `BANK_USERS_SERVICE_API` to the Users Service URL.

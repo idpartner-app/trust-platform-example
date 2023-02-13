@@ -1,5 +1,5 @@
 # Configuring the oidc-provider-service
-Follow steps below to configure the section [services.oidc-provider-service](https://github.com/idpartner-app/trust-platform-example/blob/trustPlatformExample/docker-compose.yml#L89) in the docker compose file.
+Follow steps below to configure the section [services.oidc-provider-service](../docker-compose.yml) in the docker compose file.
 
 1. Perform the [IDP Registration](https://docs.idpartner.com/documentation/identity-provider-user-guide/registering-the-trust-platform), grab the UUID and set it to `CHANGE_ME-IDENTITY_PROVIDER_UUID`.
 1. [Optional] Update the value of `TRUSTED_PACKAGE_VERIFICATION_API` to the Trust Package Verification Service URL.

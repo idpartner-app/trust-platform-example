@@ -1,7 +1,7 @@
 # Configuring the authorization-adapter-service
 > The authorization-adapter-service supports both OAuth2 and OIDC protocols. The only flow enabled by this service is the [authorization code flow](https://oauth.net/2/grant-types/authorization-code/).
 
-Follow steps below to configure the section [services.authorization-adapter-service](https://github.com/idpartner-app/trust-platform-example/blob/trustPlatformExample/docker-compose.yml#L51) in the docker compose file.
+Follow steps below to configure the section [services.authorization-adapter-service](../docker-compose.yml) in the docker compose file.
 
 ## Initial Setup
 1. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with the Client ID configured in [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).

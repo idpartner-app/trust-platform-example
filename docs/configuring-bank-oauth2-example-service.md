@@ -3,7 +3,7 @@
 **This service is not part of the IDPartner Trust Platform. We include it in this guideline only to illustrate how to integrate with an existing OAuth2 service. The usage of this service in production is strongly discouraged.**
 
 
-Follow steps below to configure the section [services.bank-oauth2-example-service](https://github.com/idpartner-app/trust-platform-example/blob/trustPlatformExample/docker-compose.yml#L21) in the docker compose file.
+Follow steps below to configure the section [services.bank-oauth2-example-service](../docker-compose.yml) in the docker compose file.
 
 1. Create and set an OAuth2 Client ID. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with a value of your choosing. For example `foo`.
 1. Create and set an OAuth2 Client Secret. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with a value of your choosing. For example `bar`.
