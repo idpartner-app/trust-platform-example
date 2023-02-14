@@ -6,7 +6,7 @@ If you are not using Docker for Mac make sure you update the references to point
 ## Configuring OIDC Provider URLs
 1. Run ngrok in your terminal `ngrok http 9501` to open an ssl tunnel to the `oidc-provider-service`
 1. Copy the host without the http scheme (`aaaaaaaaaaaa.ngrok.io`) and put it in the occurrences of `CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
-1. Copy the full ngrok host (`https://aaaaaaaaaaaa.ngrok.io`) and put it in the occurrences of `CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK` in the [compose file](../docker-compose.yml).
+1. Copy the full ngrok host, add the `/oidc` path to it (`https://aaaaaaaaaaaa.ngrok.io/oidc`) and put it in the occurrences of `CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK` in the [compose file](../docker-compose.yml).
 
 ## Configuring Authorization Adapter URLs
 1. Run ngrok in your terminal `ngrok http 9502` to open an ssl tunnel to the `authorization-adapter-service`.
