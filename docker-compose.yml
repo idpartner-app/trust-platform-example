@@ -19,10 +19,8 @@ services:
       - "6379:6379"
 
   bank-oauth2-example-service:
-    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-mock-bank-oauth2-example-service:development 
     image: idpartner-mock-bank-oauth2-example-service
     restart: always
-    # pull_policy: always
     ports:
       - "9701:9701"
     environment:
@@ -43,16 +41,31 @@ services:
 
       ### Stytch Config
       STYTCH_API_URL: https://test.stytch.com/v1
-      STYTCH_API_USERNAME: CHANGE_ME-STYTCH_USERNAME
-      STYTCH_API_PASSWORD: CHANGE_ME-STYTCH_PASSWORD
+      STYTCH_API_PROJECT_ID: CHANGE_ME-STYTCH_API_PROJECT_ID
+      STYTCH_API_SECRET: CHANGE_ME-STYTCH_API_SECRET
     depends_on:
       - redis
 
+  bank-identity-example-service:
+    image: idpartner-mock-bank-identity-service
+    restart: always
+    ports:
+      - "9702:9702"
+    environment:
+      ### Common Config
+      BASE64_JWKS: CHANGE_ME-BASE64_JWKS
+      APN_BUNDLE_ID: CHANGE_ME-APN_BUNDLE_ID
+      APN_KEY_BASE64: CHANGE_ME-APN_KEY_BASE64
+      APN_KEY_ID: CHANGE_ME-APN_KEY_ID
+      APN_TEAM_ID: CHANGE_ME-APN_TEAM_ID
+      PORT: 9702
+
+      ### Error Reporting Config
+      SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
+
   authorization-adapter-service:
-    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-authorization-adapter-service:development 
     image: idpartner-authorization-adapter-service
     restart: always
-    # pull_policy: always
     ports:
       - "9502:9502"
     environment:
@@ -86,17 +99,46 @@ services:
     depends_on:
       - redis
 
+  backchannel-auth-service:
+    image: idpartner-backchannel-authentication-service
+    restart: always
+    ports:
+      - "9503:9503"
+    environment:
+      ### Common Config
+      BASE64_JWKS: CHANGE_ME-BASE64_JWKS
+      PORT: 9503
+
+      ### Redis Config
+      REDIS_HOST: docker.for.mac.localhost
+      # REDIS_PORT: 6379
+
+      ### Session Config
+      COOKIE_DOMAIN: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK_WITHOUT_SCHEME
+      COOKIE_SECRET: CHANGE_ME-RANDOM_SECRET
+
+      ### Error Reporting Config
+      SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
+
+      ### IDP Services Config
+      MOBILE_APP_URL: CHANGE_ME-MOBILE_APP_URL
+      OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
+      BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK
+      BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
+      BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
+      BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
+    depends_on:
+      - redis
+
   oidc-provider-service:
-    # image: 535716075523.dkr.ecr.us-west-2.amazonaws.com/idpartner-oidc-provider-service:development 
     image: idpartner-oidc-provider-service
     restart: always
-    # pull_policy: always
     ports:
       - "9501:9501"
     environment:
       ### Common Config
       BASE64_JWKS: CHANGE_ME-BASE64_JWKS
-      IDENTITY_PROVIDER_UUID: IDPARTNER_IDP_UUID:CHANGE_ME
+      IDENTITY_PROVIDER_UUID: CHANGE_ME-IDENTITY_PROVIDER_UUID
       OIDC_COOKIES_KEYS: CHANGE_ME-RANDOM_SECRET
       OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
       PORT: 9501
@@ -104,9 +146,9 @@ services:
       ### Database Config
       SQL_DATABASE: idpartner
       SQL_HOST: docker.for.mac.localhost
-      SQL_PASSWORD: postgres
+      SQL_PASSWORD: welcome1
       SQL_USER: postgres
-      # PGSSLMODE: disable
+      PGSSLMODE: disable
 
       ### Redis Config
       REDIS_HOST: docker.for.mac.localhost
@@ -120,10 +162,8 @@ services:
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
 
       ### IDP Services Config
-      AUTH_SERVICE_URL: CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK
-      # TRUSTED_PACKAGE_VERIFICATION_API_AUTH_TOKEN_TTL_IN_SECONDS: 60
-      # TRUSTED_PACKAGE_VERIFICATION_API: http://docker.for.mac.localhost:9100/v1/trusted-packages/verify
-      # TRUSTED_PACKAGE_VERIFICATION_ENABLED: true
+      TRUSTED_PACKAGE_VERIFICATION_API: http://docker.for.mac.localhost:9702/v1/trusted-packages/verify
+      TRUSTED_PACKAGE_VERIFICATION_ENABLED: true
     depends_on:
       - db
       - redis

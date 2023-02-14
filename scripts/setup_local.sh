@@ -2,7 +2,6 @@
 
 PG_DATA_OVERRIDE=/tmp/idpartner/pg_data
 ROOT_DIR=`dirname $(pwd)`
-# MIGRATIONS_IMAGE=535716075523.dkr.ecr.us-west-2.amazonaws.com/mock-bank-migrations:development
 MIGRATIONS_IMAGE=idpartner-mock-bank-migrations
 
 usage () {
@@ -45,6 +44,9 @@ sleep 30
 
 # Run migrations
 docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
+
+# Stop services
+docker compose down
 
 echo "Setup FINISHED."
 echo ""
