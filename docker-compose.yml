@@ -58,6 +58,7 @@ services:
       APN_KEY_BASE64: CHANGE_ME-APN_KEY_BASE64
       APN_KEY_ID: CHANGE_ME-APN_KEY_ID
       APN_TEAM_ID: CHANGE_ME-APN_TEAM_ID
+      BANK_IDENTITY_SERVICE_URL: http://docker.for.mac.localhost:9702
       PORT: 9702
 
       ### Error Reporting Config
