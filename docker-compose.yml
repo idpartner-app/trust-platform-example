@@ -58,6 +58,7 @@ services:
       APN_KEY_BASE64: CHANGE_ME-APN_KEY_BASE64
       APN_KEY_ID: CHANGE_ME-APN_KEY_ID
       APN_TEAM_ID: CHANGE_ME-APN_TEAM_ID
+      BANK_IDENTITY_SERVICE_URL: http://docker.for.mac.localhost:9702
       PORT: 9702
 
       ### Error Reporting Config
@@ -124,6 +125,7 @@ services:
       MOBILE_APP_URL: CHANGE_ME-MOBILE_APP_URL
       OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
       BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK
+      BANK_AUTH_SERVICE_TOKEN_VERIFY_API: http://docker.for.mac.localhost:9702/v1/auth/verify
       BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
       BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
       BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
