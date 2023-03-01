@@ -125,7 +125,7 @@ services:
       MOBILE_APP_URL: CHANGE_ME-MOBILE_APP_URL
       OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
       BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK
-      BANK_AUTH_SERVICE_API: http://docker.for.mac.localhost:9702/v1/auth
+      BANK_AUTH_SERVICE_TOKEN_VERIFY_API: http://docker.for.mac.localhost:9702/v1/auth/verify
       BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
       BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
       BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
