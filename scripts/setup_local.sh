@@ -45,13 +45,8 @@ sleep 30
 # Run migrations
 docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
 
-echo "Preparing to run mockbank migrations and seeds please wait..."
-sleep 30
-
-# Run migrations
-docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=mockbank -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
 # Run seeds
-docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=mockbank -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE} yarn seed
+docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE} yarn seed
 
 # Stop services
 docker compose down

@@ -63,7 +63,7 @@ services:
       FIREBASE_PUSH_NOTIFICATIONS_ENABLED: false
       PGSSLMODE: disable
       PORT: 9702
-      SQL_DATABASE: mockbank
+      SQL_DATABASE: idpartner
       SQL_USER: postgres
       SQL_PASSWORD: welcome1
       SQL_HOST: docker.for.mac.localhost
