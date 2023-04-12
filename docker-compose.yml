@@ -59,7 +59,15 @@ services:
       APN_KEY_ID: CHANGE_ME-APN_KEY_ID
       APN_TEAM_ID: CHANGE_ME-APN_TEAM_ID
       BANK_IDENTITY_SERVICE_URL: http://docker.for.mac.localhost:9702
+      BASE64_FIREBASE_PRIVATE_KEY: e30K
+      FIREBASE_PUSH_NOTIFICATIONS_ENABLED: false
+      PGSSLMODE: disable
       PORT: 9702
+      SQL_DATABASE: idpartner
+      SQL_USER: postgres
+      SQL_PASSWORD: welcome1
+      SQL_HOST: docker.for.mac.localhost
+      SQL_PORT: 5432
 
       ### Error Reporting Config
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
