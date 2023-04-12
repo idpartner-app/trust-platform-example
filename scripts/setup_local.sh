@@ -39,7 +39,7 @@ export PG_DATA_OVERRIDE
 docker compose up --detach --remove-orphans
 
 # Give the services 20s to come up
-echo "Preparing to run idpartner migrations please wait..."
+echo "Preparing to run migrations and seeds please wait..."
 sleep 30
 
 # Run migrations
