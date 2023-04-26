@@ -56,7 +56,6 @@ services:
       BASE64_JWKS: CHANGE_ME-BASE64_JWKS
       BANK_IDENTITY_SERVICE_URL: http://docker.for.mac.localhost:9702
       BASE64_FIREBASE_PRIVATE_KEY: e30K
-      FIREBASE_PUSH_NOTIFICATIONS_ENABLED: false
       PGSSLMODE: disable
       PORT: 9702
       SQL_DATABASE: idpartner
