@@ -14,9 +14,16 @@ Follow steps below to configure the section [services.oidc-provider-service](../
 1. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with the Client ID configured in [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
 1. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with the Client Secret configured in [Configuring the bank-oauth2-example-service](configuring-bank-oauth2-example-service.md).
 1. [Optional] [PKCE](https://oauth.net/2/pkce/#:~:text=PKCE%20(RFC%207636)%20is%20an,is%20using%20a%20client%20secret.) is enabled by default. If you need to disable it set `OAUTH_PKCE_ENABLED` to `false`.
+1. Replace the occurrences of `CHANGE_ME-MOBILE_APP_URL` with the iOS mobile app URL. For example `idpartner://idpartner-future-bank`.
+1. [Optional] Update the value of `BANK_USERS_SERVICE_API` to the Users Service URL.
+1. [Optional] Update the value of `BANK_DEVICES_SERVICE_API` to the Devices Service URL.
+1. [Optional] Update the value of `BANK_PUSH_AUTHENTICATIONS_SERVICE_API` to the Push Authentications Service URL.
+1. [Optional] Configure Error Reporting. [Sign up to Sentry](https://sentry.io/signup/), create a DSN and set it to `SENTRY_DSN`.
 1. [Optional] Configure Error Reporting. [Sign up to Sentry](https://sentry.io/signup/), create a DSN and set it to `SENTRY_DSN`.
 
 By default the `TRUSTED_PACKAGE_VERIFICATION_API` points to the `bank-identity-example-service`. Update it to integrate with a custom implementation.
+
+By default the `BANK_USERS_SERVICE_API`, `BANK_DEVICES_SERVICE_API` and `BANK_PUSH_AUTHENTICATIONS_SERVICE_API` point to the `bank-identity-example-service`. Update them to integrate with a custom implementation.
 
 Depending on your integration follow instructions below to configure either OAuth2 or OIDC.
 

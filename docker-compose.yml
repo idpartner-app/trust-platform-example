@@ -72,38 +72,6 @@ services:
       ### Error Reporting Config
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
 
-  backchannel-auth-service:
-    image: idpartner-backchannel-authentication-service
-    restart: always
-    ports:
-      - "9503:9503"
-    environment:
-      ### Common Config
-      BASE64_JWKS: CHANGE_ME-BASE64_JWKS
-      PORT: 9503
-
-      ### Redis Config
-      REDIS_HOST: docker.for.mac.localhost
-      # REDIS_PORT: 6379
-
-      ### Session Config
-      COOKIE_DOMAIN: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK_WITHOUT_SCHEME
-      COOKIE_SECRET: CHANGE_ME-RANDOM_SECRET
-
-      ### Error Reporting Config
-      SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
-
-      ### IDP Services Config
-      MOBILE_APP_URL: CHANGE_ME-MOBILE_APP_URL
-      OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
-      BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK
-      BANK_AUTH_SERVICE_TOKEN_VERIFY_API: http://docker.for.mac.localhost:9702/v1/auth/verify
-      BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
-      BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
-      BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
-    depends_on:
-      - redis
-
   oidc-provider-service:
     image: idpartner-oidc-provider-service
     restart: always
@@ -150,6 +118,14 @@ services:
       OAUTH_USERINFO_PATH: /me
       OAUTH_TOKEN_PATH: /token
       OAUTH_AUTHORIZATION_PATH: /auth
+
+      ### IDP Services Config
+      MOBILE_APP_URL: CHANGE_ME-MOBILE_APP_URL
+      BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK
+      BANK_AUTH_SERVICE_TOKEN_VERIFY_API: http://docker.for.mac.localhost:9702/v1/auth/verify
+      BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
+      BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
+      BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
     depends_on:
       - db
       - redis
