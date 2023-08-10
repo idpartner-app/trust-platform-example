@@ -4,12 +4,11 @@
 
 Follow steps below to configure the section [services.bank-identity-example-service](../docker-compose.yml) in the docker compose file.
  
-1. Create an [Apple developer account](https://developer.apple.com/).
-1. Create an iOS mobile app using our ios-example-app.
-1. Replace the occurrences of `CHANGE_ME-APN_BUNDLE_ID` with the bundle ID from the mobile app
-1. Replace the occurrences of `CHANGE_ME-APN_KEY_BASE64` with the base64 encoded key from the mobile app
-1. Replace the occurrences of `CHANGE_ME-APN_KEY_ID` with the key ID from the mobile app
-1. Replace the occurrences of `CHANGE_ME-APN_TEAM_ID` with the team ID from the mobile app
+
+1. Build a [Google Firebase based mobile app](https://firebase.google.com/docs/cloud-messaging/flutter/client) that supports receiving push notifications. If you do not have one please contact IDPartner
+1. Generate a Google Firebase privatekey for your project as explained in [Firebase's docs](https://firebase.google.com/docs/admin/setup#initialize_the_sdk_in_non-google_environments)
+1. Download the private key (it's a JSON file) and encode it to base64
+1. Set the generated base64 private key to the env var with name `BASE64_FIREBASE_PRIVATE_KEY`
 
 ## Next steps
 Go to [Configuring the backchannel-auth-service](configuring-backchannel-auth-service.md).
