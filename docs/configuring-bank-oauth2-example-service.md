@@ -13,4 +13,4 @@ Follow steps below to configure the section [services.bank-oauth2-example-servic
 1. Find the occurrences of `CHANGE_ME-STYTCH_API_PROJECT_ID` and `CHANGE_ME-STYTCH_API_SECRET` and replace them with the Project ID and Secret from the Stytch [dashboard](https://stytch.com/dashboard/api-keys).
 
 ## Next steps
-Go to [Configuring the authorization-adapter-service](configuring-authorization-adapter-service.md).
+Go to [Configuring the bank-identity-example-service](configuring-bank-identity-example-service.md).
