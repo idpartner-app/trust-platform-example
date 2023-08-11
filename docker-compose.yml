@@ -54,13 +54,8 @@ services:
     environment:
       ### Common Config
       BASE64_JWKS: CHANGE_ME-BASE64_JWKS
-      APN_BUNDLE_ID: CHANGE_ME-APN_BUNDLE_ID
-      APN_KEY_BASE64: CHANGE_ME-APN_KEY_BASE64
-      APN_KEY_ID: CHANGE_ME-APN_KEY_ID
-      APN_TEAM_ID: CHANGE_ME-APN_TEAM_ID
       BANK_IDENTITY_SERVICE_URL: http://docker.for.mac.localhost:9702
       BASE64_FIREBASE_PRIVATE_KEY: e30K
-      FIREBASE_PUSH_NOTIFICATIONS_ENABLED: false
       PGSSLMODE: disable
       PORT: 9702
       SQL_DATABASE: idpartner
