@@ -18,7 +18,7 @@ services:
     ports:
       - "6379:6379"
 
-  bank-identity-example-service:
+  bank-identity-example-services:
     image: idpartner-mock-bank-identity-service
     restart: always
     ports:
@@ -26,8 +26,7 @@ services:
     environment:
       AUTHORIZATION_ISSUER_CLIENT_ID: CHANGE_ME-CLIENT_ID
       AUTHORIZATION_ISSUER_CLIENT_SECRET: CHANGE_ME-CLIENT_SECRET
-      AUTHORIZATION_ISSUER_URL: http://docker.for.mac.localhost:9701
-      AUTHORIZATION_PROXY_CALLBACK_URL: CHANGE_ME-AUTHORIZATION_ADAPTER_SERVICE_NGROK/v1/auth/callback
+      AUTHORIZATION_PROXY_CALLBACK_URL: CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK/auth-adapter/v1/auth/callback
       BASE64_JWKS: CHANGE_ME-BASE64_JWKS
       BANK_IDENTITY_SERVICE_URL: http://docker.for.mac.localhost:9702
       BASE64_FIREBASE_PRIVATE_KEY: e30K
@@ -49,8 +48,7 @@ services:
       - db
       - redis
 
-
-  oidc-provider-service:
+  trust-platform-services:
     image: idpartner-oidc-provider-service
     restart: always
     ports:
@@ -60,7 +58,7 @@ services:
       BASE64_JWKS: CHANGE_ME-BASE64_JWKS
       IDENTITY_PROVIDER_UUID: CHANGE_ME-IDENTITY_PROVIDER_UUID
       OIDC_COOKIES_KEYS: CHANGE_ME-RANDOM_SECRET
-      OIDC_SERVICE_URL: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK
+      OIDC_SERVICE_URL: CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK/oidc
       PORT: 9501
 
       ### Database Config
@@ -75,7 +73,7 @@ services:
       # REDIS_PORT: 6379
 
       ### Session Config
-      COOKIE_DOMAIN: CHANGE_ME-OIDC_PROVIDER_SERVICE_NGROK_WITHOUT_SCHEME
+      COOKIE_DOMAIN: CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK_WITHOUT_SCHEME
       COOKIE_SECRET: CHANGE_ME-RANDOM_SECRET
 
       ### Error Reporting Config
@@ -99,7 +97,6 @@ services:
 
       ### IDP Services Config
       MOBILE_APP_URL: CHANGE_ME-MOBILE_APP_URL
-      BACKCHANNEL_AUTHENTICATION_SERVICE_URL: CHANGE_ME-BACKCHANNEL_AUTH_SERVICE_NGROK
       BANK_AUTH_SERVICE_TOKEN_VERIFY_API: http://docker.for.mac.localhost:9702/v1/auth/verify
       BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
       BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
