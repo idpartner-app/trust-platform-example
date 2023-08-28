@@ -3,10 +3,15 @@ The configuration in the compose file assumes you are using [Docker for Mac](htt
 
 If you are not using `Docker for Mac` make sure you update the references to point to the localhost that resolves for your environment.
 
+## Configuring Bank Identity Example Services URLs
+1. Run ngrok in your terminal `ngrok http 9702` to open an ssl tunnel to the `bank-identity-example-services`
+1. Copy the host without the http scheme (`subdomain.ngrok.io`) and put it in the occurrences of `CHANGE_ME-BANK_IDENTITY_EXAMPLE_SERVICES_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
+1. Copy the full ngrok host (`https://subdomain.ngrok.io`) and put it in the occurrences of `CHANGE_ME-BANK_IDENTITY_EXAMPLE_SERVICES_NGROK` in the [compose file](../docker-compose.yml).
+
 ## Configuring Trust Platform Services URLs
 1. Run ngrok in your terminal `ngrok http 9501` to open an ssl tunnel to the `trust-platform-services`
-1. Copy the host without the http scheme (`aaaaaaaaaaaa.ngrok.io`) and put it in the occurrences of `CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
-1. Copy the full ngrok host (`https://aaaaaaaaaaaa.ngrok.io`) and put it in the occurrences of `CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK` in the [compose file](../docker-compose.yml).
+1. Copy the host without the http scheme (`subdomain2.ngrok.io`) and put it in the occurrences of `CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
+1. Copy the full ngrok host (`https://subdomain2.ngrok.io`) and put it in the occurrences of `CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK` in the [compose file](../docker-compose.yml).
 
 ## Configuring Random Secrets
 1. Generate a high entrophy random string running `yarn generate-random-secret`.
