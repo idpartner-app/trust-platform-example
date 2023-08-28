@@ -19,4 +19,4 @@ Random secrets are mostly used to sign session cookies. For production you must 
 1. Copy the base64 encoded JWKs and put it in the occurrences of `CHANGE_ME-BASE64_JWKS`.
 
 ## Next steps
-Go to [Configuring the bank-identity-example-service](configuring-bank-identity-example-service.md).
+Go to [Configuring the bank-identity-example-services](configuring-bank-identity-example-services.md).
