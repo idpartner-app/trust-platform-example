@@ -2,7 +2,7 @@
 
 PG_DATA_OVERRIDE=/tmp/idpartner/pg_data
 ROOT_DIR=`dirname $(pwd)`
-MIGRATIONS_IMAGE=idpartner-mock-bank-migrations
+MIGRATIONS_IMAGE=mock-bank-migrations
 
 usage () {
   echo ""
