@@ -19,7 +19,7 @@ services:
       - "6379:6379"
 
   bank-identity-example-services:
-    image: idpartner-mock-bank-identity-service
+    image: mock-bank-identity-service
     restart: always
     ports:
       - "9702:9702"
