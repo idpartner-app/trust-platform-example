@@ -81,6 +81,7 @@ services:
       ### Error Reporting Config
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
 
+      PAYMENT_DETAILS_INFO_ENABLED: true
       ### IDP Services Config
       TRUSTED_PACKAGE_VERIFICATION_API: CHANGE_ME-BANK_IDENTITY_EXAMPLE_SERVICES_NGROK/v1/trusted-packages/verify
       TRUSTED_PACKAGE_VERIFICATION_ENABLED: true
