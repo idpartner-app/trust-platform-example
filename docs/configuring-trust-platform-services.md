@@ -3,10 +3,8 @@
 Follow steps below to configure the section [services.trust-platform-services](../docker-compose.yml) in the docker compose file.
 
 1. [Register the Identity Provider](https://docs.idpartner.com/documentation/identity-provider-user-guide/registering-the-trust-platform)
-   1. Grab the value of the  [OIDC_SERVICE_URL](../docker-compose.yml) env var
-   1. Use the previous value as the `OIDC Provider URI`. Make sure the URI contains the path `/oidc`.
-   1. Replace the `/oidc` suffix with `/oidc/auth-adapter/v1/auth` to generate a new value.
-   1. Use the previous value as the `Authentication Connector URI`. Make sure the URI contains the path `/oidc/auth-adapter/v1/auth`.
+   1. Grab the value of the  [OIDC_SERVICE_URL](../docker-compose.yml) and use it as the `OIDC Provider URI`. Make sure the URI contains the path `/oidc`.
+   1. Grab the value of the  [OIDC_SERVICE_URL](../docker-compose.yml) and add the suffix `/auth-adapter/v1/auth` to it and use it as the `Authentication Connector URI`. Make sure the URI contains the path `/oidc/auth-adapter/v1/auth`.
    1. Example:
    <img width="537" alt="image" src="./trust platform configuration.png">
 
