@@ -13,6 +13,6 @@ Note: If you have Redis, Postgres and/or an OAuth2 service already running and y
 # Getting Started
 1. [Prerequisites](docs/prerequisites.md)
 1. [Common configuration](docs/initial-setup.md)
-1. [Configuring the bank-identity-example-services](docs/configuring-bank-identity-example-services.md)
+1. [Configuring the bank-example-services](docs/configuring-bank-example-services.md)
 2. [Configuring the trust-platform-services](docs/configuring-trust-platform-services.md)
 3. [Running the Trust Platform](docs/running-trust-platform.md)
