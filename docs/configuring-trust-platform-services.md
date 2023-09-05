@@ -24,16 +24,16 @@ By default the `TRUSTED_PACKAGE_VERIFICATION_API` points to the `bank-services` 
 Depending on your integration follow instructions below to configure either OAuth2 or OIDC.
 
 ## Configuring OAuth2
-1. Set `OAUTH_PROTOCOL` to `oauth2`.
-1. Configure endpoint to start authorization flow. Set `OAUTH_AUTHORIZATION_PATH` to `/auth`.
-1. Configure endpoint to fetch user info. Set `OAUTH_USERINFO_PATH` to `/me`.
-1. Configure endpoint to get access tokens. Set `OAUTH_TOKEN_PATH` to `/token`.
+1. Set `AUTH_ADAPTER_OAUTH_PROTOCOL` to `oauth2`.
+1. Configure endpoint to start authorization flow. Set `AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH` to `/auth`.
+1. Configure endpoint to fetch user info. Set `AUTH_ADAPTER_OAUTH_USERINFO_PATH` to `/me`.
+1. Configure endpoint to get access tokens. Set `AUTH_ADAPTER_OAUTH_TOKEN_PATH` to `/token`.
 
 ## Configuring OIDC
-1. Set `OAUTH_PROTOCOL` to `oidc`.
-1. Remove `OAUTH_USERINFO_PATH`, `OAUTH_TOKEN_PATH` and `OAUTH_AUTHORIZATION_PATH`.
+1. Set `AUTH_ADAPTER_OAUTH_PROTOCOL` to `oidc`.
+1. Remove `AUTH_ADAPTER_OAUTH_USERINFO_PATH`, `AUTH_ADAPTER_OAUTH_TOKEN_PATH` and `AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH`.
 
-The endpoints for `OAUTH_USERINFO_PATH`, `OAUTH_TOKEN_PATH` and `OAUTH_AUTHORIZATION_PATH` can be inferred using the OIDC well known endpoint.
+The endpoints for `AUTH_ADAPTER_OAUTH_USERINFO_PATH`, `AUTH_ADAPTER_OAUTH_TOKEN_PATH` and `AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH` can be inferred using the OIDC well known endpoint.
 
 ## Next steps
 Go to [Running the Trust Platform](running-trust-platform.md).
