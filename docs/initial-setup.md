@@ -3,11 +3,6 @@ The configuration in the compose file assumes you are using [Docker for Mac](htt
 
 If you are not using `Docker for Mac` make sure you update the references to point to the localhost that resolves for your environment.
 
-## Configuring Bank Identity Example Services URLs
-1. Run ngrok in your terminal `ngrok http 9702` to open an ssl tunnel to the `bank-example-services`
-1. Copy the host without the http scheme (`subdomain.ngrok.io`) and put it in the occurrences of `CHANGE_ME-BANK_IDENTITY_EXAMPLE_SERVICES_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
-1. Copy the full ngrok host (`https://subdomain.ngrok.io`) and put it in the occurrences of `CHANGE_ME-BANK_IDENTITY_EXAMPLE_SERVICES_NGROK` in the [compose file](../docker-compose.yml).
-
 ## Configuring Trust Platform Services URLs
 1. Run ngrok in your terminal `ngrok http 9501` to open an ssl tunnel to the `trust-platform-services`
 1. Copy the host without the http scheme (`subdomain2.ngrok.io`) and put it in the occurrences of `CHANGE_ME-TRUST_PLATFORM_SERVICES_NGROK_WITHOUT_SCHEME` in the [compose file](../docker-compose.yml).
@@ -24,4 +19,4 @@ Random secrets are mostly used to sign session cookies. For production you must 
 1. Copy the base64 encoded JWKs and put it in the occurrences of `CHANGE_ME-BASE64_JWKS`.
 
 ## Next steps
-Go to [Configuring the bank-example-services](configuring-bank-example-services.md).
+Go to [Configuring the bank-services](configuring-bank-services.md).

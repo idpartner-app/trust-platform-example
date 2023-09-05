@@ -10,8 +10,8 @@ Follow steps below to configure the section [services.trust-platform-services](.
 
 1. Grab the Identity Provider UUID and set it to `CHANGE_ME-IDENTITY_PROVIDER_UUID`.
 1. [Optional] Update the value of `TRUSTED_PACKAGE_VERIFICATION_API` to the Trust Package Verification Service URL.
-1. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with the Client ID configured in [Configuring the bank-example-services](configuring-bank-example-services.md).
-1. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with the Client Secret configured in [Configuring the bank-example-services](configuring-bank-example-services.md).
+1. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with the Client ID configured in [Configuring the bank-services](configuring-bank-services.md).
+1. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with the Client Secret configured in [Configuring the bank-services](configuring-bank-services.md).
 1. [Optional] [PKCE](https://oauth.net/2/pkce/#:~:text=PKCE%20(RFC%207636)%20is%20an,is%20using%20a%20client%20secret.) is enabled by default. If you need to disable it set `OAUTH_PKCE_ENABLED` to `false`.
 1. Replace the occurrences of `CHANGE_ME-MOBILE_APP_URL` with the iOS mobile app URL. For example `idpartner://idpartner-future-bank`.
 1. [Optional] Update the value of `BANK_USERS_SERVICE_API` to the Users Service URL.
@@ -19,21 +19,21 @@ Follow steps below to configure the section [services.trust-platform-services](.
 1. [Optional] Update the value of `BANK_PUSH_AUTHENTICATIONS_SERVICE_API` to the Push Authentications Service URL.
 1. [Optional] Configure Error Reporting. [Sign up to Sentry](https://sentry.io/signup/), create a DSN and set it to `SENTRY_DSN`.
 
-By default the `TRUSTED_PACKAGE_VERIFICATION_API` points to the `bank-example-services` and the `BANK_USERS_SERVICE_API`, `BANK_DEVICES_SERVICE_API` and `BANK_PUSH_AUTHENTICATIONS_SERVICE_API` point to the `bank-example-services`. Update them to integrate with a custom implementation.
+By default the `TRUSTED_PACKAGE_VERIFICATION_API` points to the `bank-services` and the `BANK_USERS_SERVICE_API`, `BANK_DEVICES_SERVICE_API` and `BANK_PUSH_AUTHENTICATIONS_SERVICE_API` point to the `bank-services`. Update them to integrate with a custom implementation.
 
 Depending on your integration follow instructions below to configure either OAuth2 or OIDC.
 
 ## Configuring OAuth2
-1. Set `OAUTH_PROTOCOL` to `oauth2`.
-1. Configure endpoint to start authorization flow. Set `OAUTH_AUTHORIZATION_PATH` to `/auth`.
-1. Configure endpoint to fetch user info. Set `OAUTH_USERINFO_PATH` to `/me`.
-1. Configure endpoint to get access tokens. Set `OAUTH_TOKEN_PATH` to `/token`.
+1. Set `AUTH_ADAPTER_OAUTH_PROTOCOL` to `oauth2`.
+1. Configure endpoint to start authorization flow. Set `AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH` to `/auth`.
+1. Configure endpoint to fetch user info. Set `AUTH_ADAPTER_OAUTH_USERINFO_PATH` to `/me`.
+1. Configure endpoint to get access tokens. Set `AUTH_ADAPTER_OAUTH_TOKEN_PATH` to `/token`.
 
 ## Configuring OIDC
-1. Set `OAUTH_PROTOCOL` to `oidc`.
-1. Remove `OAUTH_USERINFO_PATH`, `OAUTH_TOKEN_PATH` and `OAUTH_AUTHORIZATION_PATH`.
+1. Set `AUTH_ADAPTER_OAUTH_PROTOCOL` to `oidc`.
+1. Remove `AUTH_ADAPTER_OAUTH_USERINFO_PATH`, `AUTH_ADAPTER_OAUTH_TOKEN_PATH` and `AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH`.
 
-The endpoints for `OAUTH_USERINFO_PATH`, `OAUTH_TOKEN_PATH` and `OAUTH_AUTHORIZATION_PATH` can be inferred using the OIDC well known endpoint.
+The endpoints for `AUTH_ADAPTER_OAUTH_USERINFO_PATH`, `AUTH_ADAPTER_OAUTH_TOKEN_PATH` and `AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH` can be inferred using the OIDC well known endpoint.
 
 ## Next steps
 Go to [Running the Trust Platform](running-trust-platform.md).

@@ -1,8 +1,8 @@
-# Configuring the bank-example-services
+# Configuring the bank-services
 
-**These services are not part of the IDPartner Trust Platform. We include it in this guideline only to illustrate how to integrate with services like users-service, devices-service, push-authentications-service, trust-package-validation-service, oauth2 service and the wallet service which should be implemented by the banks. The usage of this service in production is strongly discouraged.**
+**These services are not part of the IDPartner Trust Platform. We include it in this guideline only to illustrate how to integrate with services like users-service, devices-service, push-authentications-service, trust-package-validation-service, oauth2 service which should be implemented by the banks. The usage of this service in production is strongly discouraged.**
 
-Follow steps below to configure the section [services.bank-example-services](../docker-compose.yml) in the docker compose file.
+Follow steps below to configure the section [services.bank-services](../docker-compose.yml) in the docker compose file.
 
 1. Build a [Google Firebase based mobile app](https://firebase.google.com/docs/cloud-messaging/flutter/client) that supports receiving push notifications. If you do not have one please contact IDPartner
 1. Generate a Google Firebase privatekey for your project as explained in [Firebase's docs](https://firebase.google.com/docs/admin/setup#initialize_the_sdk_in_non-google_environments)
