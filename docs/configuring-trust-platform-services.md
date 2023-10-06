@@ -8,7 +8,6 @@ Follow steps below to configure the section [services.trust-platform-services](.
    1. Example:
    <img width="537" alt="image" src="./trust platform configuration.png">
 
-1. Grab the Identity Provider UUID and set it to `CHANGE_ME-IDENTITY_PROVIDER_UUID`.
 1. [Optional] Update the value of `TRUSTED_PACKAGE_VERIFICATION_API` to the Trust Package Verification Service URL.
 1. Replace the occurrences of `CHANGE_ME-CLIENT_ID` with the Client ID configured in [Configuring the bank-services](configuring-bank-services.md).
 1. Replace the occurrences of `CHANGE_ME-CLIENT_SECRET` with the Client Secret configured in [Configuring the bank-services](configuring-bank-services.md).
