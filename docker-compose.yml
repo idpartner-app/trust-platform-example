@@ -104,6 +104,7 @@ services:
       BANK_USERS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/users
       BANK_DEVICES_SERVICE_API: http://docker.for.mac.localhost:9702/v1/devices
       BANK_PUSH_AUTHENTICATIONS_SERVICE_API: http://docker.for.mac.localhost:9702/v1/push-authentications
+      FEDERATION_ENABLED: false
     depends_on:
       - db
       - redis
