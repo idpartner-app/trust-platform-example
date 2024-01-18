@@ -19,7 +19,7 @@ services:
       - "6379:6379"
 
   bank-services:
-    image: mock-bank-identity-service
+    image: mock-bank-services
     restart: always
     ports:
       - "9702:9702"
@@ -51,7 +51,7 @@ services:
       - redis
 
   trust-platform-services:
-    image: idpartner-oidc-provider-service
+    image: idpartner-trust-platform-services
     restart: always
     ports:
       - "9501:9501"
