@@ -32,24 +32,36 @@ else
   mkdir -p ${PG_DATA_OVERRIDE}
 fi
 
-echo "PG_DATA_OVERRIDE set to: ${PG_DATA_OVERRIDE}"
+echo "PG_DATA_OVERRIDE exported as: ${PG_DATA_OVERRIDE}"
 export PG_DATA_OVERRIDE
 
 # Start services
-docker compose up --detach --remove-orphans
+docker compose up --detach --remove-orphans --wait
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 
-# Give the services 20s to come up
+# Give the services a few seconds to come up
 echo "Preparing to run migrations and seeds please wait..."
-sleep 30
+sleep 20
 
 # Run migrations
-docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
+docker run --rm -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 
 # Run seeds
-docker run -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE} yarn seed
+docker run --rm -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE} yarn seed
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 
 # Stop services
 docker compose down
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 
 echo "Setup FINISHED."
 echo ""
