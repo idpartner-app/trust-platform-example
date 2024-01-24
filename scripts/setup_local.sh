@@ -43,7 +43,7 @@ fi
 
 # Give the services a few seconds to come up
 echo "Preparing to run migrations and seeds please wait..."
-sleep 20
+sleep 30
 
 # Run migrations
 docker run --rm -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
