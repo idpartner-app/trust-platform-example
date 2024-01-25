@@ -43,9 +43,6 @@ services:
       REDIS_HOST: docker.for.mac.localhost
       REDIS_PORT: 6379
       SENTRY_DSN: https://xxx@yyy.ingest.sentry.io/000
-      STYTCH_API_URL: https://test.stytch.com/v1
-      STYTCH_API_PROJECT_ID: CHANGE_ME-STYTCH_API_PROJECT_ID
-      STYTCH_API_SECRET: CHANGE_ME-STYTCH_API_SECRET
     depends_on:
       - db
       - redis
