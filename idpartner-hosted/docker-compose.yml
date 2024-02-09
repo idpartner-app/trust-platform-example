@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14.3
+    volumes:
+      - ./scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    restart: always
+    ports:
+      - "${SQL_PORT}:${SQL_PORT}"
+    environment:
+      POSTGRES_PASSWORD: ${SQL_PASSWORD}
+
+  redis:
+    image: redis:6.2.6
+    restart: always
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+
+  bank-services:
+    image: mock-bank-services
+    restart: always
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      PORT: ${PORT}
+      BASE64_JWKS: ${BASE64_JWKS}
+      OAUTH2_AUTHORIZATION_ISSUER_CLIENT_ID: ${CLIENT_ID}
+      OAUTH2_AUTHORIZATION_ISSUER_CLIENT_SECRET: ${CLIENT_SECRET}
+      OAUTH2_AUTHORIZATION_ISSUER_URL: ${LOCAL_HOST_WITH_SCHEMA}:${PORT}
+      OAUTH2_AUTHORIZATION_PROXY_CALLBACK_URL: ${TRUST_PLATFORM_SERVICES_URL}/auth-adapter/v1/auth/callback
+      BANK_SERVICES_URL: ${LOCAL_HOST_WITH_SCHEMA}:${PORT}
+      BANK_IDENTITY_BASE64_FIREBASE_PRIVATE_KEY: e30K
+      COOKIE_DOMAIN: ${LOCAL_HOST}:${PORT}
+      COOKIE_SECRET: ${COOKIE_SECRET}
+      PGSSLMODE: ${PGSSLMODE}
+      SQL_DATABASE: ${SQL_DATABASE}
+      SQL_USER: ${SQL_USER}
+      SQL_PASSWORD: ${SQL_PASSWORD}
+      SQL_HOST: ${SQL_HOST}
+      SQL_PORT: ${SQL_PORT}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      SENTRY_DSN: ${SENTRY_DSN}
+    depends_on:
+      - db
+      - redis
