@@ -24,6 +24,7 @@ services:
       - "${PORT}:${PORT}"
     environment:
       PORT: ${PORT}
+      NODE_ENV: ${NODE_ENV}
 
       PGSSLMODE: ${PGSSLMODE}
       SQL_DATABASE: ${SQL_DATABASE}
