@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Load ENV vars
-source .env
+source .env.database
 
 ROOT_DIR=`dirname $(pwd)`
 MIGRATIONS_IMAGE=mock-bank-migrations
