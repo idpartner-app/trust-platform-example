@@ -3,8 +3,6 @@ version: '3.8'
 services:
   db:
     image: postgres:16.2
-    env_file:
-      - .env.database
     volumes:
       - ./scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     restart: always
@@ -15,18 +13,12 @@ services:
 
   redis:
     image: redis:7.2.4
-    env_file:
-      - .env.redis
     restart: always
     ports:
       - "${REDIS_PORT}:${REDIS_PORT}"
 
   bank-services:
     image: mock-bank-services
-    env_file:
-      - .env.database
-      - .env.redis
-      - .env.bank-services
     restart: always
     ports:
       - "${PORT}:${PORT}"
