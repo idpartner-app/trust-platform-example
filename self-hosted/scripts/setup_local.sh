@@ -1,20 +1,8 @@
 #!/bin/bash
 
-PG_DATA_OVERRIDE=/tmp/idpartner/pg_data
+PG_DATA=/tmp/idpartner/pg_data
 ROOT_DIR=`dirname $(pwd)`
 MIGRATIONS_IMAGE=mock-bank-migrations
-
-usage () {
-  echo ""
-  echo "${0} - will start Trust Platform locally using the specified directory as PGData for PGSQL"
-  echo ""
-  echo "  Usage: ${0} { PG_DATA_OVERRIDE_DIR }"
-  echo ""
-  echo "  Examples:"
-  echo "     ${0} - to start Trust Platform with PGSQL pgdata defaulting to ${PG_DATA_OVERRIDE}"
-  echo "     ${0} /path/to/pg_data - to start Trust Platform with PGSQL pgdata pointing to the specified location"
-  echo ""
-}
 
 ############################################################################
 #
@@ -24,16 +12,13 @@ usage () {
 
 echo "Setting up Trust Platform locally..."
 
-if [ $# = 1 ]; then
-  echo "Using specified PG_DATA directory: ${1}"
-  PG_DATA_OVERRIDE=${1}
-else
-  echo "Creating directory ${PG_DATA_OVERRIDE}"
-  mkdir -p ${PG_DATA_OVERRIDE}
-fi
+# Create folder to mount PG data volume
+echo "Creating directory ${PG_DATA}"
+mkdir -p ${PG_DATA}
 
-echo "PG_DATA_OVERRIDE exported as: ${PG_DATA_OVERRIDE}"
-export PG_DATA_OVERRIDE
+# Export ENV var to point to the PG data volume
+echo "PG_DATA exported as: ${PG_DATA}"
+export PG_DATA
 
 # Start services
 docker compose up --detach --remove-orphans --wait
@@ -67,6 +52,6 @@ echo "Setup FINISHED."
 echo ""
 echo "From this point onward you should run 'docker compose up' to start the Trust Platform"
 echo ""
-echo "Your PGSQL local database files are located in: ${PG_DATA_OVERRIDE}"
+echo "Your PGSQL local database files are located in: ${PG_DATA}"
 echo ""
 echo ""

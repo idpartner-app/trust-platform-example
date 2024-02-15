@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Load ENV vars
-source .env.database
+source .env
 
+PG_DATA=/tmp/idpartner/pg_data
 ROOT_DIR=`dirname $(pwd)`
 MIGRATIONS_IMAGE=mock-bank-migrations
 
@@ -13,6 +14,14 @@ MIGRATIONS_IMAGE=mock-bank-migrations
 ############################################################################
 
 echo "Setting up Trust Platform locally..."
+
+# Create folder to mount PG data volume
+echo "Creating directory ${PG_DATA}"
+mkdir -p ${PG_DATA}
+
+# Export ENV var to point to the PG data volume
+echo "PG_DATA exported as: ${PG_DATA}"
+export PG_DATA
 
 # Start services
 docker compose up --detach --remove-orphans --wait
@@ -46,5 +55,7 @@ fi
 echo "Setup FINISHED."
 echo ""
 echo "From this point onward you should run 'docker compose up' to start the Trust Platform"
+echo ""
+echo "Your PGSQL local database files are located in: ${PG_DATA}"
 echo ""
 echo ""
