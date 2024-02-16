@@ -5,4 +5,4 @@
 The steps above should complete without errors.
 
 ## Next steps
-You are done configuring the Trust Platform. [Register a Relying Party](https://docs.idpartner.com/documentation/relying-party-user-guide) and give it a try using the Stytch user created above.
+You are done configuring the Trust Platform. [Register a Relying Party](https://docs.idpartner.com/documentation/relying-party-user-guide) and give it a try.

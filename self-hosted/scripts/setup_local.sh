@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Load ENV vars
+source .env
+
 PG_DATA=/tmp/idpartner/pg_data
 ROOT_DIR=`dirname $(pwd)`
 MIGRATIONS_IMAGE=mock-bank-migrations
@@ -31,13 +34,14 @@ echo "Preparing to run migrations and seeds please wait..."
 sleep 30
 
 # Run migrations
-docker run --rm -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE}
+echo "docker run --rm -e SQL_USER=${SQL_USER} -e SQL_PASSWORD=${SQL_PASSWORD} -e SQL_DATABASE=${SQL_DATABASE} -e SQL_HOST=${SQL_HOST} ${MIGRATIONS_IMAGE}"
+docker run --rm -e SQL_USER=${SQL_USER} -e SQL_PASSWORD=${SQL_PASSWORD} -e SQL_DATABASE=${SQL_DATABASE} -e SQL_HOST=${SQL_HOST} ${MIGRATIONS_IMAGE}
 if [ $? -ne 0 ]; then
   exit 1
 fi
 
 # Run seeds
-docker run --rm -e SQL_USER=postgres -e SQL_PASSWORD=welcome1 -e SQL_DATABASE=idpartner -e SQL_HOST=docker.for.mac.localhost ${MIGRATIONS_IMAGE} yarn seed
+docker run --rm -e SQL_USER=${SQL_USER} -e SQL_PASSWORD=${SQL_PASSWORD} -e SQL_DATABASE=${SQL_DATABASE} -e SQL_HOST=${SQL_HOST} ${MIGRATIONS_IMAGE} yarn seed
 if [ $? -ne 0 ]; then
   exit 1
 fi
