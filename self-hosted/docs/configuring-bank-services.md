@@ -1,18 +1,17 @@
-# Configuring the bank-services
+# Configuring the Bank Services
+**Disclaimer: The bank-services outlined here are not components of the IDPartner Trust Platform. This guide includes them solely for demonstration purposes, illustrating potential integrations with banking services such as user, device, push authentication, trust package validation, and OAuth2 services, which banks should implement independently. Utilizing these illustrative services in a production environment is strongly advised against.**
 
-**These services are not part of the IDPartner Trust Platform. We include it in this guideline only to illustrate how to integrate with services like users-service, devices-service, push-authentications-service, trust-package-validation-service, oauth2 service which should be implemented by the banks. The usage of this service in production is strongly discouraged.**
-
-Follow steps below to configure the section [services.bank-services](../docker-compose.yml) in the docker compose file.
+To configure the `bank-services` section within the `docker-compose.yml` file, follow the steps below.
 
 ## Web, redirect-based flow
-1. Create and set an OAuth2 Client ID. Replace the occurrences of `{{CHANGE_ME-CLIENT_ID}}` in the [.env file](../.env) with a value of your choosing. For example `foo`.
-1. Create and set an OAuth2 Client Secret. Replace the occurrences of `{{CHANGE_ME-CLIENT_SECRET}}` in the [.env file](../.env) with a value of your choosing. For example `bar`.
+1. Generate an OAuth2 Client ID. Replace all instances of `{{CHANGE_ME-CLIENT_ID}}` in the `.env` file with your chosen value. For example: `foo`.
+1. Generate an OAuth2 Client Secret. Replace all instances of `{{CHANGE_ME-CLIENT_SECRET}}` in the `.env` file with your chosen value. For example: `bar`.
 
 ## Mobile, push-authentication-based flow
-1. Build a [Google Firebase based mobile app](https://firebase.google.com/docs/cloud-messaging/flutter/client) that supports receiving push notifications. If you do not have one please contact IDPartner
-1. Generate a Google Firebase privatekey for your project as explained in [Firebase's docs](https://firebase.google.com/docs/admin/setup#initialize_the_sdk_in_non-google_environments)
-1. Download the private key (it's a JSON file) and encode it to base64
-1. Replace `{{CHANGE_ME-FIREBASE_BASE64_PRIVATE_KEY}}` in the [.env file](../.env) by the generated base64 private key
+1. Develop a mobile app capable of receiving push notifications, based on [Google Firebase](https://firebase.google.com/docs/cloud-messaging/flutter/client). If you lack such an app, please consult IDPartner for assistance.
+1. Follow [Firebase's documentation](https://firebase.google.com/docs/admin/setup#initialize_the_sdk_in_non-google_environments) to generate a Google Firebase private key for your project.
+1. Download the private key (a JSON file) and convert it to base64 format.
+1. Replace `{{CHANGE_ME-FIREBASE_BASE64_PRIVATE_KEY}}` in the `.env` file with the generated base64-encoded private key.
 
 ## Next steps
 Go to [Configuring the trust-platform-services](configuring-trust-platform-services.md).
