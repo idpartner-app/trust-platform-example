@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16.2
+    volumes:
+      - ${PG_DATA-/tmp/idpartner/pg_data}:/var/lib/postgresql/data
+      - ./scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    restart: always
+    ports:
+      - "${SQL_PORT}:${SQL_PORT}"
+    environment:
+      POSTGRES_PASSWORD: ${SQL_PASSWORD}
+
+  redis:
+    image: redis:7.2.4
+    restart: always
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+
+  bank-services:
+    image: mock-bank-services
+    restart: always
+    ports:
+      - "${BANK_SERVICES_PORT}:${BANK_SERVICES_PORT}"
+    environment:
+      PORT: ${BANK_SERVICES_PORT}
+      NODE_ENV: ${NODE_ENV}
+
+      PGSSLMODE: ${PGSSLMODE}
+      SQL_DATABASE: ${SQL_DATABASE}
+      SQL_USER: ${SQL_USER}
+      SQL_PASSWORD: ${SQL_PASSWORD}
+      SQL_HOST: ${SQL_HOST}
+      SQL_PORT: ${SQL_PORT}
+
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+
+      # Common Config
+      BASE64_JWKS: ${BASE64_JWKS}
+      BANK_SERVICES_URL: ${BANK_SERVICES_URL}
+      COOKIE_DOMAIN: ${BANK_SERVICES_URL_WITHOUT_SCHEMA}
+      COOKIE_SECRET: ${COOKIE_SECRET}
+      SENTRY_DSN: ${SENTRY_DSN}
+
+      # OAuth2 Config
+      OAUTH2_AUTHORIZATION_ISSUER_CLIENT_ID: ${CLIENT_ID}
+      OAUTH2_AUTHORIZATION_ISSUER_CLIENT_SECRET: ${CLIENT_SECRET}
+      OAUTH2_AUTHORIZATION_ISSUER_URL: ${BANK_SERVICES_URL}
+      OAUTH2_AUTHORIZATION_PROXY_CALLBACK_URL: ${TRUST_PLATFORM_SERVICES_URL}/auth-adapter/v1/auth/callback
+
+      # Push Notifications Config
+      BANK_IDENTITY_BASE64_FIREBASE_PRIVATE_KEY: ${FIREBASE_BASE64_PRIVATE_KEY}
+    depends_on:
+      - db
+      - redis

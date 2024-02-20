@@ -1,0 +1,112 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16.2
+    volumes:
+      - ${PG_DATA-/tmp/idpartner/pg_data}:/var/lib/postgresql/data
+      - ./scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    restart: always
+    ports:
+      - "${SQL_PORT}:${SQL_PORT}"
+    environment:
+      POSTGRES_PASSWORD: ${SQL_PASSWORD}
+
+  redis:
+    image: redis:7.2.4
+    restart: always
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+
+  bank-services:
+    image: mock-bank-services
+    restart: always
+    ports:
+      - "${BANK_SERVICES_PORT}:${BANK_SERVICES_PORT}"
+    environment:
+      PORT: ${BANK_SERVICES_PORT}
+      NODE_ENV: ${NODE_ENV}
+
+      # Database Config
+      PGSSLMODE: ${PGSSLMODE}
+      SQL_DATABASE: ${SQL_DATABASE}
+      SQL_USER: ${SQL_USER}
+      SQL_PASSWORD: ${SQL_PASSWORD}
+      SQL_HOST: ${SQL_HOST}
+      SQL_PORT: ${SQL_PORT}
+
+      # Redis Config
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+
+      # Common Config
+      BASE64_JWKS: ${BASE64_JWKS}
+      BANK_SERVICES_URL: ${BANK_SERVICES_URL}
+      COOKIE_DOMAIN: ${BANK_SERVICES_URL_WITHOUT_SCHEMA}
+      COOKIE_SECRET: ${COOKIE_SECRET}
+      SENTRY_DSN: ${SENTRY_DSN}
+
+      # OAuth2 Config
+      OAUTH2_AUTHORIZATION_ISSUER_CLIENT_ID: ${CLIENT_ID}
+      OAUTH2_AUTHORIZATION_ISSUER_CLIENT_SECRET: ${CLIENT_SECRET}
+      OAUTH2_AUTHORIZATION_ISSUER_URL: ${BANK_SERVICES_URL}
+      OAUTH2_AUTHORIZATION_PROXY_CALLBACK_URL: ${TRUST_PLATFORM_SERVICES_URL}/auth-adapter/v1/auth/callback
+
+      # Push Notifications Config
+      BANK_IDENTITY_BASE64_FIREBASE_PRIVATE_KEY: ${FIREBASE_BASE64_PRIVATE_KEY}
+    depends_on:
+      - db
+      - redis
+
+  trust-platform-services:
+    image: idpartner-trust-platform-services
+    restart: always
+    ports:
+      - "${TRUST_PLATFORM_SERVICES_PORT}:${TRUST_PLATFORM_SERVICES_PORT}"
+    environment:
+      PORT: ${TRUST_PLATFORM_SERVICES_PORT}
+      NODE_ENV: ${NODE_ENV}
+
+      # Database Config
+      PGSSLMODE: ${PGSSLMODE}
+      SQL_DATABASE: ${SQL_DATABASE}
+      SQL_USER: ${SQL_USER}
+      SQL_PASSWORD: ${SQL_PASSWORD}
+      SQL_HOST: ${SQL_HOST}
+      SQL_PORT: ${SQL_PORT}
+
+      # Redis Config
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+
+      # Common Config
+      BASE64_JWKS: ${BASE64_JWKS}
+      TRUST_PLATFORM_SERVICE_URL: ${TRUST_PLATFORM_SERVICES_URL}
+      COOKIE_DOMAIN: ${TRUST_PLATFORM_SERVICES_URL_WITHOUT_SCHEMA}
+      COOKIE_SECRET: ${COOKIE_SECRET}
+      OIDC_COOKIES_KEYS: ${COOKIE_SECRET}
+      SENTRY_DSN: ${SENTRY_DSN}
+
+      # Trust Package Verification Config
+      BANK_TRUSTED_PACKAGE_VERIFICATION_API: ${BANK_SERVICES_URL}/v1/trusted-packages/verify
+      BANK_TRUSTED_PACKAGE_VERIFICATION_ENABLED: ${TRUST_PACKAGE_VERIFICATION_ENABLED}
+
+      # OAuth-Web, Redirect-based Flow Config
+      AUTH_ADAPTER_OAUTH_URL: ${BANK_SERVICES_URL}/oauth2
+      AUTH_ADAPTER_OAUTH_CLIENT_ID: ${CLIENT_ID}
+      AUTH_ADAPTER_OAUTH_CLIENT_SECRET: ${CLIENT_SECRET}
+      AUTH_ADAPTER_OAUTH_PROTOCOL: ${AUTH_ADAPTER_OAUTH_PROTOCOL}
+      AUTH_ADAPTER_OAUTH_USERINFO_PATH: ${AUTH_ADAPTER_OAUTH_USERINFO_PATH}
+      AUTH_ADAPTER_OAUTH_TOKEN_PATH: ${AUTH_ADAPTER_OAUTH_TOKEN_PATH}
+      AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH: ${AUTH_ADAPTER_OAUTH_AUTHORIZATION_PATH}
+      AUTH_ADAPTER_OAUTH_PKCE_ENABLED: ${AUTH_ADAPTER_OAUTH_PKCE_ENABLED}
+
+      # Mobile, Push-based Config
+      BACKCHANNEL_MOBILE_APP_URL: ${BACKCHANNEL_MOBILE_APP_URL}
+      BANK_AUTH_SERVICE_TOKEN_VERIFY_API: ${BANK_SERVICES_URL}/v1/auth/verify
+      BANK_USERS_SERVICE_API: ${BANK_SERVICES_URL}/v1/users
+      BANK_DEVICES_SERVICE_API: ${BANK_SERVICES_URL}/v1/devices
+      BANK_PUSH_AUTHENTICATIONS_SERVICE_API: ${BANK_SERVICES_URL}/v1/push-authentications
+    depends_on:
+      - db
+      - redis
