@@ -3,13 +3,13 @@ Follow the steps below to configure the `services.trust-platform-services` secti
 
 ## Web, redirect-based flow
 1. [Register the Identity Provider](https://docs.idpartner.com/documentation/identity-provider-user-guide/registering-the-trust-platform)
-   - Obtain the value of `[TRUST_PLATFORM_SERVICE_URL](../docker-compose.yml)`, append `/oidc` to it, and use this as the `OIDC Provider URI`.
-   - Obtain the value of `[TRUST_PLATFORM_SERVICE_URL](../docker-compose.yml)`, append `/auth-adapter/v1/auth` to it, and use this as the `Authentication Connector URI`.
+   - Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/oidc` to it, and use this as the `OIDC Provider URI`.
+   - Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/auth-adapter/v1/auth` to it, and use this as the `Authentication Connector URI`.
    - For example:
    <img width="537" alt="image" src="./trust-platform-configuration-web.png">
 
-1. Replace `{{CHANGE_ME-CLIENT_ID}}` with the Client ID set in [Configuring the Bank Services](configuring-bank-services.md).
-1. Replace `{{CHANGE_ME-CLIENT_SECRET}}` with the Client Secret set in [Configuring the Bank Services](configuring-bank-services.md).
+2. Replace `{{CHANGE_ME-CLIENT_ID}}` in the `.env` file with the Client ID set in [Configuring the Bank Services](configuring-bank-services.md).
+3. Replace `{{CHANGE_ME-CLIENT_SECRET}}` in the `.env` file with the Client Secret set in [Configuring the Bank Services](configuring-bank-services.md).
 
 Depending on your integration follow instructions below to configure either OAuth2 or OIDC.
 
@@ -27,8 +27,8 @@ Depending on your integration follow instructions below to configure either OAut
 
 ## Mobile, push-authentication-based flow
 1. [Register the Identity Provider](https://docs.idpartner.com/documentation/identity-provider-user-guide/registering-the-trust-platform)
-   - Obtain the value of `[TRUST_PLATFORM_SERVICE_URL](../docker-compose.yml)`, append `/oidc` to it, and use this as the `OIDC Provider URI`.
-   - Obtain the value of `[TRUST_PLATFORM_SERVICE_URL](../docker-compose.yml)`, append `/backchannel/v1/auth` to it, and use this as the `Authentication Connector URI`.
+   - Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/oidc` to it, and use this as the `OIDC Provider URI`.
+   - Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/backchannel/v1/auth` to it, and use this as the `Authentication Connector URI`.
    - For example:
    <img width="537" alt="image" src="./trust-platform-configuration-mobile.png">
 1. Replace `{{CHANGE_ME-MOBILE_APP_URL}}` in the `.env` file with your iOS mobile app URL, e.g., `idpartner://idpartner-future-bank`.

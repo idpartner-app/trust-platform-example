@@ -1,5 +1,4 @@
 # Prerequisites
-
 Before proceeding, ensure the following tools are installed on your system as they are essential for completing the setup.
 
 | Tool    | Instructions                                                           | Verification Command | Supported Version  |

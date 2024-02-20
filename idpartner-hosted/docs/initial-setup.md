@@ -4,9 +4,7 @@ The default configuration in the `docker-compose.yaml` file is tailored for [Doc
 If you're not using Docker for Mac or if `docker.for.mac.localhost` does not resolve in your environment, update these references to match the DNS settings that work for your setup.
 
 ## Configuring Trust Platform Services URLs
-1. Start an SSL tunnel to the `trust-platform-services` by running `ngrok http 9501` in your terminal.
-1. Copy the generated ngrok host, excluding the HTTP/HTTPS scheme (e.g., `subdomain2.ngrok.io`), and replace all instances of `{{CHANGE_ME-TRUST_PLATFORM_SERVICES_URL_WITHOUT_SCHEMA}}` in the `.env` file with this host.
-1. Copy the full ngrok URL (e.g., `https://subdomain2.ngrok.io`) and replace all instances of `{{CHANGE_ME-TRUST_PLATFORM_SERVICES_URL}}` in the `.env` file with this URL.
+1. Set the Trust Platform Services URL (e.g. `https://mock-bank-auth.idpartner.com`) to all instances of `{{CHANGE_ME-TRUST_PLATFORM_SERVICES_URL}}` in the `.env` file with this URL.
 
 ## Configuring Random Secrets
 1. Generate a high-entropy random string by executing `yarn generate-random-secret`.
