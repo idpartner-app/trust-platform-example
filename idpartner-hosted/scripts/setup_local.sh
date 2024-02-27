@@ -5,7 +5,7 @@ source .env
 
 PG_DATA=/tmp/idpartner/pg_data
 ROOT_DIR=`dirname $(pwd)`
-MIGRATIONS_IMAGE=mock-bank-migrations
+MIGRATIONS_IMAGE=public.ecr.aws/x2m0h2u7/mock-bank-migrations:production
 
 ############################################################################
 #
