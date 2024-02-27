@@ -19,7 +19,7 @@ services:
       - "${REDIS_PORT}:${REDIS_PORT}"
 
   bank-services:
-    image: mock-bank-services
+    image: public.ecr.aws/x2m0h2u7/mock-bank-identity-service:production
     restart: always
     ports:
       - "${BANK_SERVICES_PORT}:${BANK_SERVICES_PORT}"
