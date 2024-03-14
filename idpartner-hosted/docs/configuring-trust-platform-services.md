@@ -8,8 +8,8 @@ You will need the Bank Services URL later on. Keep it handy.
 ## Web, redirect-based flow
 1. [Register the Identity Provider](https://docs.idpartner.com/documentation/identity-provider-user-guide/registering-the-trust-platform)
    1. Choose `IDPartner-hosted` as `Hosting Preference`
-   1. Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/oidc` to it, and use this as the `OIDC Provider URI`.
-   1. Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/auth-adapter/v1/auth` to it, and use this as the `Authentication Connector URI`.
+   1. Obtain the value of [TRUST_PLATFORM_SERVICES_URL](../.env), append `/oidc` to it, and use this as the `OIDC Provider URI`.
+   1. Obtain the value of [TRUST_PLATFORM_SERVICES_URL](../.env), append `/auth-adapter/v1/auth` to it, and use this as the `Authentication Connector URI`.
    1. [Optional] Activate `Trust Package Verification Enabled` if needed. For Trust Package Verification, append `/v1/trusted-packages/verify` to the full `bank-services` ngrok URL (e.g., `https://subdomain.ngrok.io`) and use it as the `Trust Package Verification URI`.
 2. Replace `{{CHANGE_ME-CLIENT_ID}}` in the `.env` file with the Client ID set in [Configuring the Bank Services](configuring-bank-services.md).
 3. Replace `{{CHANGE_ME-CLIENT_SECRET}}` in the `.env` file with the Client Secret set in [Configuring the Bank Services](configuring-bank-services.md).
@@ -36,8 +36,8 @@ Configuration example: <img width="537" alt="image" src="./trust-platform-config
 ## Mobile, push-authentication-based flow
 1. [Register the Identity Provider](https://docs.idpartner.com/documentation/identity-provider-user-guide/registering-the-trust-platform)
    1. Select `IDPartner-hosted` as `Hosting Preference`
-   1. Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/oidc` to it, and use this as the `OIDC Provider URI`.
-   1. Obtain the value of `[TRUST_PLATFORM_SERVICES_URL](../.env)`, append `/backchannel/v1/auth` to it, and use this as the `Authentication Connector URI`.
+   1. Obtain the value of [TRUST_PLATFORM_SERVICES_URL](../.env), append `/oidc` to it, and use this as the `OIDC Provider URI`.
+   1. Obtain the value of [TRUST_PLATFORM_SERVICES_URL](../.env), append `/backchannel/v1/auth` to it, and use this as the `Authentication Connector URI`.
    1. [Optional] Activate `Trust Package Verification Enabled` if needed. For Trust Package Verification, append `/v1/trusted-packages/verify` to the full `bank-services` ngrok URL (e.g., `https://subdomain.ngrok.io`) and use it as the `Trust Package Verification URI`.
    1. Copy the full `bank-services` ngrok URL (e.g., `https://subdomain.ngrok.io`), append `/v1/auth/verify` and use it as the `Access Token Verification URI`
    1. Copy the full `bank-services` ngrok URL (e.g., `https://subdomain.ngrok.io`), append `/v1/users` and use it as the `Users Service URI`
